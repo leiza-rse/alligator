@@ -5,33 +5,33 @@ The Alligator Ontology consists of Classes and Properties.
 **Alligator Event Example:**
 
 ```text
-@prefix alligator: <http://rgzm.github.io/alligator/ontology/#> .
+@prefix alligator: <http://rgzm.github.io/alligator/ontology#> .
 @prefix ae: <http://example.net/event#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 
 ae:example
-    a alligator:Event ;
+    a alligator:event ;
     a time:Interval ;
     dc:identifier "example" ;
     rdfs:label "DomitianConsulate2" ;
-    alligator:estimatedStart "81.0" ;
-    alligator:estimatedEnd "96.0" ;
-    alligator:CAx "-0.2646" ;
-    alligator:CAy "-0.856" ;
-    alligator:CAz "1.0336" ;
-    alligator:startFixed "false" ;
-    alligator:endFixed "false" ;
-    alligator:nextFixedStartNeighbour ae:aDm6bY ;
-    alligator:nextFixedEndNeighbour ae:aDm6bY ;
+    alligator:estimatedstart "81.0" ;
+    alligator:estimatedend "96.0" ;
+    alligator:cax "-0.2646" ;
+    alligator:cay "-0.856" ;
+    alligator:caz "1.0336" ;
+    alligator:startfixed "false" ;
+    alligator:endfixed "false" ;
+    alligator:nfsn "Example 3" ;
+    alligator:nfen "Example 3" ;
     time:intervalContains ae:example2 .
 ```
 
 
 ## Classes
 
-### Event
+### event
 
 **This is Alligator Event Object.**
 
@@ -39,74 +39,74 @@ ae:example
 
 ## Properties
 
-### estimatedStart
+### estimatedstart
 
 **Estimated Event Start Date.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (double)
 
-### estimatedEnd
+### estimatedend
 
 **Estimated Event End Date.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (double)
 
-### CAx
+### cax
 
 **x-value of the CA.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (double)
 
-### CAy
+### cay
 
 **y-value of the CA.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (double)
 
-### CAz
+### caz
 
 **z-value of the CA.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (double)
 
-### startFixed
+### startfixed
 
 **Shows if the start date value is fixed.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (boolean)
 
-### endFixed
+### endfixed
 
 **Shows if the end date value is fixed.**
 
-domain: alligator:Event
+domain: alligator:event
 
 range: rdfs:Literal (boolean)
 
-### nextFixedStartNeighbour
+### nfsn
 
 **If the start value is not fixed, the next fixed start neighbour is shown.**
 
-domain: alligator:Event
+domain: alligator:event
 
-range: alligator:Event
+range: alligator:event
 
-### nextFixedEndNeighbour
+### nfen
 
 **If the start value is not fixed, the next fixed end neighbour is shown.**
 
-domain: alligator:Event
+domain: alligator:event
 
-range: alligator:Event
+range: alligator:event
