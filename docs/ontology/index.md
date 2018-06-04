@@ -4,7 +4,7 @@
 
 ### Event
 
-*This is Alligator Event Object.*
+**This is Alligator Event Object.**
 
 = time:Interval
 
