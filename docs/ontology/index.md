@@ -4,6 +4,8 @@
 
 ### Event
 
+*This is Alligator Event Object.*
+
 = time:Interval
 
 ## Properties
