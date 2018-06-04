@@ -5,33 +5,27 @@ The Alligator Ontology consists of Classes and Properties.
 **Alligator Event Example:**
 
 ```text
-ae:example a alligator:Event .
+@prefix alligator: <http://rgzm.github.io/alligator/ontology/#> .
+@prefix ae: <http://example.net/event#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 
-ae:example a time:Interval .
-
-ae:example a dc:identifier .
-
-ae:example rdfs:label "DomitianConsulate2" .
-
-ae:example alligator:a "81.0" .
-
-ae:example alligator:b "96.0" .
-
-ae:example alligator:x "-0.2646" .
-
-ae:example alligator:y "-0.856" .
-
-ae:example alligator:z "1.0336" .
-
-ae:example alligator:startFixed "false" .
-
-ae:example alligator:endFixed "false" .
-
-ae:example alligator:nnStart ae:aDm6bY .
-
-ae:example alligator:nnEnd ae:aDm6bY .
-
-ae:example time:intervalContains ae:example2 .
+ae:example
+    a alligator:Event ;
+    ae:example a time:Interval ;
+    ae:example dc:identifier "example" ;
+    ae:example rdfs:label "DomitianConsulate2" ;
+    ae:example alligator:a "81.0" ;
+    ae:example alligator:b "96.0" ;
+    ae:example alligator:x "-0.2646" ;
+    ae:example alligator:y "-0.856" ;
+    ae:example alligator:z "1.0336" ;
+    ae:example alligator:startFixed "false" ;
+    ae:example alligator:endFixed "false" ;
+    ae:example alligator:nnStart ae:aDm6bY ;
+    ae:example alligator:nnEnd ae:aDm6bY ;
+    ae:example time:intervalContains ae:example2 .
 ```
 
 
