@@ -13,7 +13,7 @@ The Alligator Ontology consists of Classes and Properties.
 
 ae:example
     a alligator:Event ;
-    ae:example a time:Interval ;
+    a time:Interval ;
     ae:example dc:identifier "example" ;
     ae:example rdfs:label "DomitianConsulate2" ;
     ae:example alligator:a "81.0" ;
