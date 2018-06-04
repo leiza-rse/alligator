@@ -14,18 +14,18 @@ The Alligator Ontology consists of Classes and Properties.
 ae:example
     a alligator:Event ;
     a time:Interval ;
-    ae:example dc:identifier "example" ;
-    ae:example rdfs:label "DomitianConsulate2" ;
-    ae:example alligator:a "81.0" ;
-    ae:example alligator:b "96.0" ;
-    ae:example alligator:x "-0.2646" ;
-    ae:example alligator:y "-0.856" ;
-    ae:example alligator:z "1.0336" ;
-    ae:example alligator:startFixed "false" ;
-    ae:example alligator:endFixed "false" ;
-    ae:example alligator:nnStart ae:aDm6bY ;
-    ae:example alligator:nnEnd ae:aDm6bY ;
-    ae:example time:intervalContains ae:example2 .
+    dc:identifier "example" ;
+    rdfs:label "DomitianConsulate2" ;
+    alligator:a "81.0" ;
+    alligator:b "96.0" ;
+    alligator:x "-0.2646" ;
+    alligator:y "-0.856" ;
+    alligator:z "1.0336" ;
+    alligator:startFixed "false" ;
+    alligator:endFixed "false" ;
+    alligator:nnStart ae:aDm6bY ;
+    alligator:nnEnd ae:aDm6bY ;
+    time:intervalContains ae:example2 .
 ```
 
 
