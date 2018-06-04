@@ -16,15 +16,15 @@ ae:example
     a time:Interval ;
     dc:identifier "example" ;
     rdfs:label "DomitianConsulate2" ;
-    alligator:a "81.0" ;
-    alligator:b "96.0" ;
-    alligator:x "-0.2646" ;
-    alligator:y "-0.856" ;
-    alligator:z "1.0336" ;
+    alligator:estimatedStart "81.0" ;
+    alligator:estimatedEnd "96.0" ;
+    alligator:CAx "-0.2646" ;
+    alligator:CAy "-0.856" ;
+    alligator:CAz "1.0336" ;
     alligator:startFixed "false" ;
     alligator:endFixed "false" ;
-    alligator:nnStart ae:aDm6bY ;
-    alligator:nnEnd ae:aDm6bY ;
+    alligator:nextFixedStartNeighbour ae:aDm6bY ;
+    alligator:nextFixedEndNeighbour ae:aDm6bY ;
     time:intervalContains ae:example2 .
 ```
 
@@ -39,23 +39,23 @@ ae:example
 
 ## Properties
 
-### a
+### estimatedStart
 
-**Virtual Event Start Date.**
-
-domain: alligator:Event
-
-range: rdfs:Literal (double)
-
-### b
-
-**Virtual Event End Date.**
+**Estimated Event Start Date.**
 
 domain: alligator:Event
 
 range: rdfs:Literal (double)
 
-### x
+### estimatedEnd
+
+**Estimated Event End Date.**
+
+domain: alligator:Event
+
+range: rdfs:Literal (double)
+
+### CAx
 
 **x-value of the CA.**
 
@@ -63,7 +63,7 @@ domain: alligator:Event
 
 range: rdfs:Literal (double)
 
-### y
+### CAy
 
 **y-value of the CA.**
 
@@ -71,7 +71,7 @@ domain: alligator:Event
 
 range: rdfs:Literal (double)
 
-### z
+### CAz
 
 **z-value of the CA.**
 
@@ -95,7 +95,7 @@ domain: alligator:Event
 
 range: rdfs:Literal (boolean)
 
-### nnStart
+### nextFixedStartNeighbour
 
 **If the start value is not fixed, the next fixed start neighbour is shown.**
 
@@ -103,7 +103,7 @@ domain: alligator:Event
 
 range: alligator:Event
 
-### nnEnd
+### nextFixedEndNeighbour
 
 **If the start value is not fixed, the next fixed end neighbour is shown.**
 
