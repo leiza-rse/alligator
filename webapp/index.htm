@@ -2,6 +2,14 @@
 <head>
 	<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/dist/themes/default/style.min.css" />
+
+	<!--CodeMirror-->
+	<link rel="stylesheet" href="codemirror/codemirror.css">
+	<link rel="stylesheet" href="codemirror/darcula.css">
+	<script src="codemirror/codemirror.js"></script>
+	<script src="codemirror/turtle.js"></script>
+
+
 	<style>
 	* {
 	    padding: 0px;
@@ -96,6 +104,12 @@ fieldset {
   box-shadow: 0 0 10px gray;
 }
 
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+
 </style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
@@ -105,8 +119,7 @@ fieldset {
     $(document).ready(function() {
 
 	// elements
-	$("#matrix").hide();
-	$("#timeline").hide();
+
 
 	// The event listener for the file upload
     document.getElementById('txtFileUpload').addEventListener('change', upload, false);
@@ -153,7 +166,6 @@ fieldset {
 								alert('No data to import!');
 							}*/
 							if (selValue==="matrixdist") {
-								//var html = "<table>";
 								var html = "<tr>";
 								for (var item in data[0]) {
 									html += "<th>"+data[0][item]+"</th>";
@@ -167,12 +179,10 @@ fieldset {
 									}
 									html += "</tr>";
 								}
-								//html += "</table>";
 								$("#matrixtable").append(html);
 								$("#matrix-div").show();
 							}
 							if (selValue==="matrixallen") {
-								//var html = "<table>";
 								var html = "<tr>";
 								for (var item in data[0]) {
 									html += "<th>"+data[0][item]+"</th>";
@@ -186,7 +196,6 @@ fieldset {
 									}
 									html += "</tr>";
 								}
-								//html += "</table>";
 								$("#matrixtable").append(html);
 								$("#matrix-div").show();
 							}
@@ -208,6 +217,18 @@ fieldset {
 								console.log(container, items, options);
 						        $('.vis-time-axis.vis-foreground').hide();
 							}
+							if (selValue==="turtle") {
+								$("#rdffile-div").html("");
+								$("#rdffile-div").html("<textarea id='rdf'></textarea>");
+								var turtle = CodeMirror.fromTextArea(document.getElementById("rdf"), {
+									mode: "text/turtle",
+          							matchBrackets: true,
+									lineNumbers: true,
+								});
+								turtle.setValue(data);
+								turtle.setOption("theme", "darcula");
+								$("#rdffile-div").show();
+							}
 							$("#loading").hide();
 						}
 					});
@@ -227,6 +248,9 @@ fieldset {
 				<input type="radio" name="alligator" value="matrixdist" checked> Matrix 3D-Distances<br>
 				<input type="radio" name="alligator" value="matrixallen"> Matrix Allen Intervals<br>
 				<input type="radio" name="alligator" value="timeline"> Timeline<br>
+				<input type="radio" name="alligator" value="graph"> Graph<br>
+				<input type="radio" name="alligator" value="rdfgraph"> RDF Graph<br>
+				<input type="radio" name="alligator" value="turtle"> Turtle Representation<br>
 			</fieldset>
 			<br>
 			<fieldset>
@@ -242,6 +266,7 @@ fieldset {
 		<div id="loading" style="text-align:center;">here comes the content...</div>
 		<br>
 		<div id="matrix-div"><table id="matrixtable" style="width:100%"></table></div>
+		<div id="rdffile-div" style:"height:auto;"><textarea id='rdf' style="width:1px;height:auto"></textarea></div>
 		<div id="timeline-div"></div>
 
     </body>
