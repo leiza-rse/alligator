@@ -206,22 +206,25 @@ fieldset {
 								$("#matrix-div").show();
 							}
 							if (selValue==="timeline") {
-								// hide the "loading..." message
-						        //document.getElementById('loading').style.display = 'none';
-
 						        // DOM element where the Timeline will be attached
 						        var container = document.getElementById('timeline-div');
-
 								// Create a DataSet (allows two way data-binding)
 						        var items = new vis.DataSet(data);
-
 						        // Configuration for the Timeline
 						        var options = {};
-
 						        // Create a Timeline
 						        var timeline = new vis.Timeline(container, items, options);
-								console.log(container, items, options);
 						        $('.vis-time-axis.vis-foreground').hide();
+							}
+							if (selValue==="graph") {
+								$('#graph-div').css('border', "1px solid red");
+								var container = document.getElementById('graph-div');
+					            var data = {
+					                nodes: new vis.DataSet(response.nodes),
+					                edges: new vis.DataSet(response.edges)
+					            };
+					            var options = {};
+					            var network = new vis.Network(container, data, options);
 							}
 							if (selValue==="turtle") {
 								$("#rdffile-div").html("");
@@ -285,6 +288,6 @@ fieldset {
 		<div id="matrix-div"><table id="matrixtable" style="width:100%"></table></div>
 		<div id="rdffile-div" style:"height:auto;"><textarea id='rdf' style="width:1px;height:auto"></textarea></div>
 		<div id="timeline-div"></div>
-		<div id="mynetwork"></div>
+		<div id="graph-div" style="width:800px; height:600px;"></div>
     </body>
 </html>
