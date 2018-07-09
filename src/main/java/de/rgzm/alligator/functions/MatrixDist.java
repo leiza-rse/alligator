@@ -10,7 +10,7 @@ public class MatrixDist {
     public static JSONArray writeMatrixAsJSONArray(Alligator alligator) {
         JSONArray arr = new JSONArray();
         JSONArray arrHeader = new JSONArray();
-        arrHeader.add(null);
+        arrHeader.add("");
         for (String id : alligator.eventIDs) {
             arrHeader.add(alligator.getEventById(id).name);
         }

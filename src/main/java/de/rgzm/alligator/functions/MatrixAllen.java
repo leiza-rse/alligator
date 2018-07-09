@@ -9,7 +9,7 @@ public class MatrixAllen {
     public static JSONArray writeMatrixAsJSONArray(Alligator alligator) {
         JSONArray arr = new JSONArray();
         JSONArray arrHeader = new JSONArray();
-        arrHeader.add(null);
+        arrHeader.add("");
         for (String id : alligator.eventIDs) {
             arrHeader.add(alligator.getEventById(id).name);
         }
@@ -21,7 +21,7 @@ public class MatrixAllen {
             HashMap dm = thisEvent.allenRelations;
             for (String id2 : alligator.eventIDs) {
                 if ("null".equals(String.valueOf(dm.get(id2)))) {
-                    arrTmp.add(null);
+                    arrTmp.add("");
                 } else {
                     arrTmp.add(String.valueOf(dm.get(id2)));
                 }
