@@ -3,6 +3,7 @@ package de.rgzm.alligator.rest;
 import de.rgzm.alligator.config.POM;
 import de.rgzm.alligator.functions.Alligator;
 import de.rgzm.alligator.functions.MatrixAllen;
+import de.rgzm.alligator.functions.MatrixDist;
 import de.rgzm.alligator.functions.Timeline;
 import de.rgzm.alligator.log.Logging;
 import de.rgzm.alligator.restconfig.ResponseGZIP;
@@ -35,13 +36,32 @@ public class AlligatorAPI {
     @Path("/matrixallen")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
-    public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
+    public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             
             // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
             JSONArray matrixJSON = MatrixAllen.writeMatrixAsJSONArray(alligator);
+            // output
+            return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
+                    .header("Content-Type", "application/json;charset=UTF-8").build();
+        }
+    }
+    
+    @POST
+    @Path("/matrixdist")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
+        try {
+            
+            // write timeline json
+            Alligator alligator = new Alligator();
+            alligator = alligator.calculate(tsv);
+            JSONArray matrixJSON = MatrixDist.writeMatrixAsJSONArray(alligator);
             // output
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
