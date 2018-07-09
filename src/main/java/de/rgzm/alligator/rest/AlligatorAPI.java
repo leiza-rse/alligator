@@ -39,12 +39,9 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-
-            // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
             JSONArray matrixJSON = MatrixAllen.writeMatrixAsJSONArray(alligator);
-            // output
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
@@ -58,12 +55,9 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-
-            // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
             JSONArray matrixJSON = MatrixDist.writeMatrixAsJSONArray(alligator);
-            // output
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
@@ -77,12 +71,9 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetTIMELINEJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-
-            // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
             JSONArray timelineJSON = Timeline.writeTimelineJSON(alligator);
-            // output
             return ResponseGZIP.setResponse(acceptEncoding, timelineJSON.toString());
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
@@ -96,13 +87,9 @@ public class AlligatorAPI {
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetRDFFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-
-            // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
             String rdf = RDFEvents.writeRDFasText(alligator);
-            //rdf = rdf.replace("\r\n", "<br>");
-            // output
             return Response.ok(rdf).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
