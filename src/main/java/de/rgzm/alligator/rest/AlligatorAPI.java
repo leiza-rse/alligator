@@ -39,8 +39,16 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsv);
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             JSONArray matrixJSON = MatrixAllen.writeMatrixAsJSONArray(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
@@ -55,8 +63,16 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsv);
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             JSONArray matrixJSON = MatrixDist.writeMatrixAsJSONArray(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
@@ -71,8 +87,16 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetTIMELINEJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsv);
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             JSONArray timelineJSON = Timeline.writeTimelineJSON(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, timelineJSON.toString());
         } catch (Exception e) {
@@ -87,8 +111,16 @@ public class AlligatorAPI {
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetRDFFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsv);
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             String rdf = RDFEvents.writeRDFasText(alligator);
             return Response.ok(rdf).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {

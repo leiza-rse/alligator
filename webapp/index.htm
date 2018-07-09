@@ -110,6 +110,12 @@ fieldset {
   height: auto;
 }
 
+#mynetwork {
+	width: 800px;
+	height: 800px;
+	border: 1px solid black;
+}
+
 </style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
@@ -152,7 +158,7 @@ fieldset {
 					$.ajax({
 						type: "POST",
 						url: "http://localhost:8084/alligator/"+selValue+"/",
-						data: csvData,
+						data: $("#startfixed").val()+","+$("#endfixed").val()+";" + csvData,
 						contentType: 'text/plain',
 						error: function (jqXHR, textStatus, errorThrown) {
 							alert(errorThrown);
@@ -244,13 +250,24 @@ fieldset {
     <body>
         <div id="dvImportSegments" class="fileupload" style="width:100%">
 			<fieldset>
-				<legend>Upload your CSV File</legend>
-				<input type="radio" name="alligator" value="matrixdist" checked> Matrix 3D-Distances<br>
-				<input type="radio" name="alligator" value="matrixallen"> Matrix Allen Intervals<br>
-				<input type="radio" name="alligator" value="timeline"> Timeline<br>
-				<input type="radio" name="alligator" value="graph"> Graph<br>
-				<input type="radio" name="alligator" value="rdfgraph"> RDF Graph<br>
-				<input type="radio" name="alligator" value="turtle"> Turtle Representation<br>
+				<legend>select the output</legend>
+				<input type="radio" name="alligator" value="matrixdist" class="form-check-input" checked> Matrix 3D-Distances<br>
+				<input type="radio" name="alligator" value="matrixallen" class="form-check-input"> Matrix Allen Intervals<br>
+				<input type="radio" name="alligator" value="timeline" class="form-check-input"> Timeline<br>
+				<input type="radio" name="alligator" value="graph" class="form-check-input"> Graph<br>
+				<input type="radio" name="alligator" value="rdfgraph" class="form-check-input"> RDF Graph<br>
+				<input type="radio" name="alligator" value="turtle" class="form-check-input"> Turtle Representation<br>
+			</fieldset>
+			<br>
+			<fieldset>
+				<legend>select date type (if one is empty, not used)</legend>
+				<label for="exampleInputEmail1">start not fixed value</label>
+    			<input type="text" class="form-control" id="startfixed" placeholder="20.0">
+    			<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
+				<br><br>
+				<label for="exampleInputEmail1">end not fixed value</label>
+    			<input type="text" class="form-control" id="endfixed" placeholder="130.0">
+    			<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
 			</fieldset>
 			<br>
 			<fieldset>
@@ -268,6 +285,6 @@ fieldset {
 		<div id="matrix-div"><table id="matrixtable" style="width:100%"></table></div>
 		<div id="rdffile-div" style:"height:auto;"><textarea id='rdf' style="width:1px;height:auto"></textarea></div>
 		<div id="timeline-div"></div>
-
+		<div id="mynetwork"></div>
     </body>
 </html>

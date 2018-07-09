@@ -27,7 +27,7 @@ public class Alligator {
     double yearCoefficientEnd = 1.0;
     public List<String> allenRelationList = new ArrayList();
 
-    public Alligator calculate(String tsv) {
+    public Alligator calculate(String tsv, Double startFixedValue, Double endFixedValue) {
         // parse TSV as text/plain
         String[] lines = null;
         List inputfile = new ArrayList();
@@ -42,7 +42,7 @@ public class Alligator {
         // init Alligator
         Alligator alligator = new Alligator();
         // create alligator events
-        alligator.writeToAlligatorEventList(inputfile, null, null);
+        alligator.writeToAlligatorEventList(inputfile, startFixedValue, endFixedValue);
         // calculate distances
         alligator.calculateDistances();
         // calculate next fixed neighbours
