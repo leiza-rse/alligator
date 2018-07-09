@@ -19,13 +19,13 @@ tr:nth-child(even) {
 </style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
-    <script type="text/javascript">  
+    <script type="text/javascript">
     $(document).ready(function() {
 
 	// elements
 	$("#content").hide();
 	$("#matrixtable").hide();
-	
+
     // The event listener for the file upload
     document.getElementById('txtFileUpload').addEventListener('change', upload, false);
 
@@ -51,7 +51,7 @@ tr:nth-child(even) {
                     var csvData = event.target.result;
                     data = $.csv.toArrays(csvData);
 					//console.log(csvData);
-					var selValue = $('input[name=alligator]:checked').val(); 
+					var selValue = $('input[name=alligator]:checked').val();
 					//console.log(selValue);
 					$.ajax({
 						type: "POST",
