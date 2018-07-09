@@ -27,6 +27,37 @@ public class Alligator {
     double yearCoefficientEnd = 1.0;
     public List<String> allenRelationList = new ArrayList();
 
+    public Alligator calculate(String tsv) {
+        // parse TSV as text/plain
+        String[] lines = null;
+        List inputfile = new ArrayList();
+        if (tsv.contains("\r\n")) {
+            lines = tsv.split("\r\n");
+        } else if (tsv.contains("\n")) {
+            lines = tsv.split("\n");
+        }
+        for (String line : lines) {
+            inputfile.add(line);
+        }
+        // init Alligator
+        Alligator alligator = new Alligator();
+        // create alligator events
+        alligator.writeToAlligatorEventList(inputfile, null, null);
+        // calculate distances
+        alligator.calculateDistances();
+        // calculate next fixed neighbours
+        alligator.getNextFixedNeighbours();
+        // output virtual years
+        System.out.println("\r\n===== virtual years =====");
+        for (Object event : alligator.events) {
+            AlligatorEvent ae = (AlligatorEvent) event;
+            System.out.println(ae.name + "\t" + String.valueOf(ae.a) + "\t" + String.valueOf(ae.b) + " " + ae.startFixed + " " + ae.endFixed);
+        }
+        // allen
+        alligator.calculateAllenSigns();
+        return alligator;
+    }
+
     public boolean writeToAlligatorEventList(List inputLines, Double startFixedValue, Double endFixedValue) {
         try {
             String header = (String) inputLines.get(0);
