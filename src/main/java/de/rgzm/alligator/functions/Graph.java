@@ -49,5 +49,34 @@ public class Graph {
             e.toString();
         }
     }
+    
+    public static JSONObject writeGraphJSON(Alligator alligator) {
+        JSONArray nodejson = new JSONArray();
+        for (Object event : alligator.events) {
+            JSONObject t = new JSONObject();
+            AlligatorEvent ae = (AlligatorEvent) event;
+            t.put("id", ae.id);
+            t.put("label", ae.name);
+            nodejson.add(t);
+        }
+        JSONArray edgejson = new JSONArray();
+        for (String id : alligator.eventIDs) {
+            AlligatorEvent thisEvent = alligator.getEventById(id);
+            HashMap dm = thisEvent.allenRelations;
+            for (String id2 : alligator.eventIDs) {
+                JSONObject t = new JSONObject();
+                t.put("from", thisEvent.id);
+                t.put("to", id2);
+                t.put("label", String.valueOf(dm.get(id2)));
+                if (String.valueOf(dm.get(id2)) != "null") {
+                    edgejson.add(t);
+                }
+            }
+        }
+        JSONObject output = new JSONObject();
+        output.put("nodes", nodejson);
+        output.put("edges", edgejson);
+        return output;
+    }
 
 }

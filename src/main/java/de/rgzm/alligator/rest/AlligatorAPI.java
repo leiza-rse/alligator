@@ -2,6 +2,7 @@ package de.rgzm.alligator.rest;
 
 import de.rgzm.alligator.config.POM;
 import de.rgzm.alligator.functions.Alligator;
+import de.rgzm.alligator.functions.Graph;
 import de.rgzm.alligator.functions.MatrixAllen;
 import de.rgzm.alligator.functions.MatrixDist;
 import de.rgzm.alligator.functions.RDFEvents;
@@ -18,6 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 @Path("/")
 public class AlligatorAPI {
@@ -99,6 +101,30 @@ public class AlligatorAPI {
             alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             JSONArray timelineJSON = Timeline.writeTimelineJSON(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, timelineJSON.toString());
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
+                    .header("Content-Type", "application/json;charset=UTF-8").build();
+        }
+    }
+    
+    @POST
+    @Path("/graph")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    public Response loadCAgetGRAPHJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
+        try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
+            Alligator alligator = new Alligator();
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            JSONObject graphJSON = Graph.writeGraphJSON(alligator);
+            return ResponseGZIP.setResponse(acceptEncoding, graphJSON.toString());
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
                     .header("Content-Type", "application/json;charset=UTF-8").build();
