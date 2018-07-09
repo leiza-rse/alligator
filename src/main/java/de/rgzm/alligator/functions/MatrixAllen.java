@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 
 public class MatrixAllen {
 
-    public static JSONArray writeMatrixAsTSV(Alligator alligator) {
+    public static JSONArray writeMatrixAsJSONArray(Alligator alligator) {
         JSONArray arr = new JSONArray();
         JSONArray arrHeader = new JSONArray();
         arrHeader.add(null);

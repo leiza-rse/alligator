@@ -41,7 +41,7 @@ public class AlligatorAPI {
             // write timeline json
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsv);
-            JSONArray matrixJSON = MatrixAllen.writeMatrixAsTSV(alligator);
+            JSONArray matrixJSON = MatrixAllen.writeMatrixAsJSONArray(alligator);
             // output
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
