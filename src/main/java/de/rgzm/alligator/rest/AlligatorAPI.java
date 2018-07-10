@@ -178,7 +178,8 @@ public class AlligatorAPI {
             Alligator alligator = new Alligator();
             alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             String rdf = RDFEvents.writeRDFasText(alligator);
-            String filename = "C://tmp/alligator-files/" + String.valueOf(System.currentTimeMillis()) + ".ttl"; // /opt/tomcat/webapps/alligator-files/
+            //String filename = "C://tmp/alligator-files/" + String.valueOf(System.currentTimeMillis()) + ".ttl";
+            String filename = "/opt/tomcat/webapps/alligator-files/" + String.valueOf(System.currentTimeMillis()) + ".ttl";
             try {
                 File fileDir = new File(filename);
                 Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF8"));
