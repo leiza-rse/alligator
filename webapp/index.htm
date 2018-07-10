@@ -39,12 +39,8 @@ tr:nth-child(even) {
 }
 fieldset {
     display: block;
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-top: 0.35em;
-    padding-bottom: 0.625em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 2px groove (internal value);
 }
 
@@ -177,6 +173,7 @@ fieldset {
 					$.ajax({
 						type: "POST",
 						url: "http://localhost:8084/alligator/"+selValue+"/",
+						//url: "http://143.93.114.135/alligator/"+selValue+"/",
 						data: $("#startfixed").val()+","+$("#endfixed").val()+";" + csvData,
 						contentType: 'text/plain',
 						error: function (jqXHR, textStatus, errorThrown) {
@@ -193,6 +190,7 @@ fieldset {
 							$("#refresh-div").show();
 							$("#wrapper-div").show();
 							$("#upload-div").hide();
+							$("#info-div").hide();
 							if (selValue==="matrixdist") {
 								var html = "<tr>";
 								for (var item in data[0]) {
@@ -284,11 +282,18 @@ fieldset {
     </head>
     <body>
 		<h1>Alligator - An Allen Transformator</h1>
-		<div class="alert alert-info" style="margin:10px;">
-  			<strong>About Alligator:</strong> Info...
-		</div>
-		<div class="alert alert-success" style="margin:10px;">
-  			<strong>How to use...</strong> Info...
+		<div id="info-div" width="100%">
+			<div class="alert alert-info" style="margin:10px;">
+				<img src="alligator-400h.png" height="200">
+				<br><br>
+				<strong>About Alligator:</strong> Info...
+			</div>
+			<div class="alert alert-success" style="margin:10px;">
+	  			<strong>How to use: </strong> Info...
+			</div>
+			<div class="alert alert-danger" style="margin:10px;">
+	  			<strong>Credits:</strong> Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie, Florian Thiery M.Sc., Dr. Allard Mees
+			</div>
 		</div>
 		<div id="upload-div" width="100%">
 			<fieldset>
@@ -303,13 +308,18 @@ fieldset {
 			<br>
 			<fieldset>
 				<legend>select date type (if one is empty, not used)</legend>
-				<label for="exampleInputEmail1">start not fixed value</label>
-    			<input type="text" class="form-control" id="startfixed" placeholder="20.0">
-    			<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
-				<br><br>
-				<label for="exampleInputEmail1">end not fixed value</label>
-    			<input type="text" class="form-control" id="endfixed" placeholder="130.0">
-    			<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
+				<div class="form-group row">
+					<div class="col-xs-2">
+						<label for="exampleInputEmail1">start not fixed value</label>
+		    			<input type="text" class="form-control" id="startfixed" placeholder="20.0">
+		    			<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
+					</div>
+					<div class="col-xs-2">
+						<label for="exampleInputEmail1">end not fixed value</label>
+		    			<input type="text" class="form-control" id="endfixed" placeholder="130.0">
+		    			<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
+					</div>
+				</div>
 			</fieldset>
 			<br>
 			<fieldset>
