@@ -159,16 +159,13 @@ fieldset {
         if (!browserSupportFileUpload()) {
             alert('The File APIs are not fully supported in this browser!');
             } else {
-                var data = null;
                 var file = evt.target.files[0];
                 var reader = new FileReader();
                 reader.readAsText(file);
                 reader.onload = function(event) {
                     var csvData = event.target.result;
                     data = $.csv.toArrays(csvData);
-					//console.log(csvData);
 					var selValue = $('input[name=alligator]:checked').val();
-					//console.log(selValue);
 					$("#loading").html("loading...");
 					$.ajax({
 						type: "POST",
@@ -181,27 +178,21 @@ fieldset {
 						},
 						success: function (response) {
 							console.log(response);
-							var data = response;
-							/*if (data && data.length > 0) {
-								alert('Imported -' + data.length + '- rows successfully!');
-							} else {
-								alert('No data to import!');
-							}*/
 							$("#refresh-div").show();
 							$("#wrapper-div").show();
 							$("#upload-div").hide();
 							$("#info-div").hide();
 							if (selValue==="matrixdist") {
 								var html = "<tr>";
-								for (var item in data[0]) {
-									html += "<th>"+data[0][item]+"</th>";
+								for (var item in response[0]) {
+									html += "<th>"+response[0][item]+"</th>";
 								}
-								data.splice(0, 1);
+								response.splice(0, 1);
 								html += "</tr>";
-								for (var row in data) {
+								for (var row in response) {
 									html += "<tr>";
-									for (var item in data[row]) {
-										html += "<td>"+data[row][item]+"</td>";
+									for (var item in response[row]) {
+										html += "<td>"+response[row][item]+"</td>";
 									}
 									html += "</tr>";
 								}
@@ -211,15 +202,15 @@ fieldset {
 							}
 							if (selValue==="matrixallen") {
 								var html = "<tr>";
-								for (var item in data[0]) {
-									html += "<th>"+data[0][item]+"</th>";
+								for (var item in response[0]) {
+									html += "<th>"+response[0][item]+"</th>";
 								}
-								data.splice(0, 1);
+								response.splice(0, 1);
 								html += "</tr>";
-								for (var row in data) {
+								for (var row in response) {
 									html += "<tr>";
-									for (var item in data[row]) {
-										html += "<td>"+data[row][item]+"</td>";
+									for (var item in response[row]) {
+										html += "<td>"+response[row][item]+"</td>";
 									}
 									html += "</tr>";
 								}
@@ -231,7 +222,7 @@ fieldset {
 						        // DOM element where the Timeline will be attached
 						        var container = document.getElementById('timeline-div');
 								// Create a DataSet (allows two way data-binding)
-						        var items = new vis.DataSet(data);
+						        var items = new vis.DataSet(response);
 						        // Configuration for the Timeline
 						        var options = {};
 						        // Create a Timeline
@@ -260,7 +251,7 @@ fieldset {
           							matchBrackets: true,
 									lineNumbers: true,
 								});
-								turtle.setValue(data);
+								turtle.setValue(response);
 								turtle.setOption("theme", "darcula");
 							}
 							if (selValue==="turtlefile") {
