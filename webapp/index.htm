@@ -1,88 +1,93 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-	  	<meta name="description" content="Alligator - An Allen Transformator">
-	  	<meta name="keywords" content="Allen,Linked Data">
-	  	<meta name="author" content="Römisch-Germansiches Zentralmuseum, Florian Thiery">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Alligator - An Allen Transformator</title>
-		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-	</head>
-	<body>
-		<h1>Alligator - An Allen Transformator</h1>
-		<div id="info-div" width="100%">
-			<div class="alert alert-info" style="margin:10px;">
-				<img src="alligator-400h.png" height="200">
-				<br><br>
-				<strong>About Alligator:</strong> Info...
-			</div>
-			<div class="alert alert-success" style="margin:10px;">
-	  			<strong>How to use: </strong> Info...
-			</div>
-			<div class="alert alert-danger" style="margin:10px;">
-	  			<strong>Credits:</strong> Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie, Florian Thiery M.Sc., Dr. Allard Mees
-			</div>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Alligator - An Allen Transformator">
+	<meta name="keywords" content="Allen,Linked Data">
+	<meta name="author" content="Römisch-Germansiches Zentralmuseum, Florian Thiery">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alligator - An Allen Transformator</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+	<h1>Alligator - An Allen Transformator</h1>
+	<div id="info-div" width="100%">
+		<div class="alert alert-info" style="margin:10px;">
+			<img src="alligator-400h.png" height="200">
+			<br><br>
+			<strong>About Alligator:</strong> Info...
 		</div>
-		<div id="upload-div" width="100%">
-			<fieldset>
-				<legend>select the output</legend>
-				<input type="radio" name="alligator" value="matrixdist" class="form-check-input"> show the matrix of 3D distances<br>
-				<input type="radio" name="alligator" value="matrixallen" class="form-check-input"> show the matrix of Allen intervals<br>
-				<input type="radio" name="alligator" value="timeline" class="form-check-input" checked> show a "virtual" timeline<br>
-				<input type="radio" name="alligator" value="graph" class="form-check-input"> show the Allen interval graph<br>
-				<input type="radio" name="alligator" value="turtlefile" class="form-check-input"> show the Allen RDF Graph<br>
-				<input type="radio" name="alligator" value="turtle" class="form-check-input"> show the Allen RDF file in Turtle representation<br>
-			</fieldset>
-			<br>
-			<fieldset>
-				<legend>select date type (if one is empty, not used)</legend>
-				<div class="form-group row">
-					<div class="col-xs-2">
-						<label for="exampleInputEmail1">start not fixed value</label>
-		    			<input type="text" class="form-control" id="startfixed" placeholder="20.0">
-		    			<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
-					</div>
-					<div class="col-xs-2">
-						<label for="exampleInputEmail1">end not fixed value</label>
-		    			<input type="text" class="form-control" id="endfixed" placeholder="130.0">
-		    			<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
-					</div>
+		<div class="alert alert-success" style="margin:10px;">
+			<strong>How to use: </strong> Info...
+		</div>
+		<div class="alert alert-danger" style="margin:10px;">
+			<strong>Credits:</strong> Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie, Florian Thiery M.Sc., Dr. Allard Mees
+		</div>
+	</div>
+	<div id="upload-div" width="100%">
+		<fieldset>
+			<legend>select the output</legend>
+			<input type="radio" name="alligator" value="matrixdist" class="form-check-input"> show the matrix of 3D distances<br>
+			<input type="radio" name="alligator" value="matrixallen" class="form-check-input"> show the matrix of Allen intervals<br>
+			<input type="radio" name="alligator" value="timeline" class="form-check-input" checked> show a "virtual" timeline<br>
+			<input type="radio" name="alligator" value="graph" class="form-check-input"> show the Allen interval graph<br>
+			<input type="radio" name="alligator" value="turtlefile" class="form-check-input"> show the Allen RDF Graph<br>
+			<input type="radio" name="alligator" value="turtle" class="form-check-input"> show the Allen RDF file in Turtle representation<br>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>select date type (if one is empty, not used)</legend>
+			<div class="form-group row">
+				<div class="col-xs-2">
+					<label for="exampleInputEmail1">start not fixed value</label>
+					<input type="text" class="form-control" id="startfixed" placeholder="20.0">
+					<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
 				</div>
-			</fieldset>
-			<br>
-			<fieldset>
-				<legend>Upload your CSV File</legend>
-				<input type="file" name="File Upload" id="txtFileUpload" class="form-control-file" accept=".tsv" />
-			</fieldset>
+				<div class="col-xs-2">
+					<label for="exampleInputEmail1">end not fixed value</label>
+					<input type="text" class="form-control" id="endfixed" placeholder="130.0">
+					<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
+				</div>
+			</div>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Upload your CSV File</legend>
+			<input type="file" name="File Upload" id="txtFileUpload" class="form-control-file" accept=".tsv" />
+		</fieldset>
+	</div>
+	<div id="refresh-div" width="100%">
+		<fieldset>
+			<legend>Refresh</legend>
+			<input type="button" value="Refresh Page" onClick="location.href=location.href">
+		</fieldset>
+	</div>
+	<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px;">
+		<div id="loading" style="text-align:center;">here comes the content...</div>
+		<div id="matrix-div" class="halign">
+			<table id="matrixtable"></table>
 		</div>
-		<div id="refresh-div" width="100%">
-			<fieldset>
-				<legend>Refresh</legend>
-				<input type="button" value="Refresh Page" onClick="location.href=location.href">
-			</fieldset>
-		</div>
-		<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px;" >
-			<div id="loading" style="text-align:center;">here comes the content...</div>
-			<div id="matrix-div" class="halign"><table id="matrixtable"></table></div>
-			<div id="rdffile-div" class="halign greyborder"></div>
-			<div id="timeline-div" class="halign"></div>
-			<div id="graph-div" class="halign greyborder"></div>
-			<div id="rdf-div" class="halign greyborder"></div>
-		</div>
-	</body>
-	<!-- styles -->
-	<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/dist/themes/default/style.min.css" />
-	<link rel="stylesheet" href="css/app.css">
-	<link rel="stylesheet" href="codemirror/codemirror.css">
-	<link rel="stylesheet" href="codemirror/darcula.css">
-	<link href="http://visjs.org/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
-	<!-- scripts -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
-	<script src="codemirror/codemirror.js"></script>
-	<script src="codemirror/turtle.js"></script>
-	<script src="http://visjs.org/dist/vis.js"></script>
-	<script src="js/app.js"></script>
+		<div id="rdffile-div" class="halign greyborder"></div>
+		<div id="timeline-div" class="halign"></div>
+		<div id="graph-div" class="halign greyborder"></div>
+		<div id="rdf-div" class="halign greyborder"></div>
+	</div>
+</body>
+<!-- styles -->
+<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://www.jstree.com/static/3.3.5/assets/dist/themes/default/style.min.css" />
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="codemirror/codemirror.css">
+<link rel="stylesheet" href="codemirror/darcula.css">
+<link href="http://visjs.org/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+<script src="codemirror/codemirror.js"></script>
+<script src="codemirror/turtle.js"></script>
+<script src="http://visjs.org/dist/vis.js"></script>
+<script src="js/app.js"></script>
+
 </html>

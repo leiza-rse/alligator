@@ -1,30 +1,31 @@
 $(document).ready(function() {
 
-// elements
-$("#matrix-div").hide();
-$("#rdffile-div").hide();
-$("#timeline-div").hide();
-$("#graph-div").hide();
-$("#rdf-div").hide();
-$("#refresh-div").hide();
-$("#wrapper-div").hide();
+    var API_URL = "http://localhost:8084/alligator/";
+    //var API_URL = "http://143.93.114.135/alligator/";
 
-// The event listener for the file upload
-document.getElementById('txtFileUpload').addEventListener('change', upload, false);
+    // elements
+    $("#matrix-div").hide();
+    $("#rdffile-div").hide();
+    $("#timeline-div").hide();
+    $("#graph-div").hide();
+    $("#rdf-div").hide();
+    $("#refresh-div").hide();
+    $("#wrapper-div").hide();
 
-// Method that checks that the browser supports the HTML5 File API
-function browserSupportFileUpload() {
-    var isCompatible = false;
-    if (window.File && window.FileReader && window.FileList && window.Blob) {
-    isCompatible = true;
+    // The event listener for the file upload
+    document.getElementById('txtFileUpload').addEventListener('change', upload, false);
+    // Method that checks that the browser supports the HTML5 File API
+    function browserSupportFileUpload() {
+        var isCompatible = false;
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            isCompatible = true;
+        }
+        return isCompatible;
     }
-    return isCompatible;
-}
-
-// Method that reads and processes the selected file
-function upload(evt) {
-    if (!browserSupportFileUpload()) {
-        alert('The File APIs are not fully supported in this browser!');
+    // Method that reads and processes the selected file
+    function upload(evt) {
+        if (!browserSupportFileUpload()) {
+            alert('The File APIs are not fully supported in this browser!');
         } else {
             var file = evt.target.files[0];
             var reader = new FileReader();
@@ -36,30 +37,29 @@ function upload(evt) {
                 $("#loading").html("loading...");
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:8084/alligator/"+selValue+"/",
-                    //url: "http://143.93.114.135/alligator/"+selValue+"/",
-                    data: $("#startfixed").val()+","+$("#endfixed").val()+";" + csvData,
+                    url: API_URL + selValue + "/",
+                    data: $("#startfixed").val() + "," + $("#endfixed").val() + ";" + csvData,
                     contentType: 'text/plain',
-                    error: function (jqXHR, textStatus, errorThrown) {
+                    error: function(jqXHR, textStatus, errorThrown) {
                         alert(errorThrown);
                     },
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
                         $("#refresh-div").show();
                         $("#wrapper-div").show();
                         $("#upload-div").hide();
                         $("#info-div").hide();
-                        if (selValue==="matrixdist") {
+                        if (selValue === "matrixdist") {
                             var html = "<tr>";
                             for (var item in response[0]) {
-                                html += "<th>"+response[0][item]+"</th>";
+                                html += "<th>" + response[0][item] + "</th>";
                             }
                             response.splice(0, 1);
                             html += "</tr>";
                             for (var row in response) {
                                 html += "<tr>";
                                 for (var item in response[row]) {
-                                    html += "<td>"+response[row][item]+"</td>";
+                                    html += "<td>" + response[row][item] + "</td>";
                                 }
                                 html += "</tr>";
                             }
@@ -67,17 +67,17 @@ function upload(evt) {
                             $("#matrixtable").append(html);
                             $("#matrix-div").show();
                         }
-                        if (selValue==="matrixallen") {
+                        if (selValue === "matrixallen") {
                             var html = "<tr>";
                             for (var item in response[0]) {
-                                html += "<th>"+response[0][item]+"</th>";
+                                html += "<th>" + response[0][item] + "</th>";
                             }
                             response.splice(0, 1);
                             html += "</tr>";
                             for (var row in response) {
                                 html += "<tr>";
                                 for (var item in response[row]) {
-                                    html += "<td>"+response[row][item]+"</td>";
+                                    html += "<td>" + response[row][item] + "</td>";
                                 }
                                 html += "</tr>";
                             }
@@ -85,7 +85,7 @@ function upload(evt) {
                             $("#matrixtable").append(html);
                             $("#matrix-div").show();
                         }
-                        if (selValue==="timeline") {
+                        if (selValue === "timeline") {
                             // DOM element where the Timeline will be attached
                             var container = document.getElementById('timeline-div');
                             // Create a DataSet (allows two way data-binding)
@@ -97,7 +97,7 @@ function upload(evt) {
                             $('.vis-time-axis.vis-foreground').hide();
                             $("#timeline-div").show();
                         }
-                        if (selValue==="graph") {
+                        if (selValue === "graph") {
                             $('#graph-div').width(1200);
                             $('#graph-div').height(800);
                             var container = document.getElementById('graph-div');
@@ -109,7 +109,7 @@ function upload(evt) {
                             var network = new vis.Network(container, data, options);
                             $("#graph-div").show();
                         }
-                        if (selValue==="turtle") {
+                        if (selValue === "turtle") {
                             $("#rdffile-div").show();
                             $("#rdffile-div").html("");
                             $("#rdffile-div").html("<textarea id='rdf' style='width:1px;height:auto'></textarea>");
@@ -121,9 +121,9 @@ function upload(evt) {
                             turtle.setValue(response);
                             turtle.setOption("theme", "darcula");
                         }
-                        if (selValue==="turtlefile") {
+                        if (selValue === "turtlefile") {
                             $("#rdf-div").html("");
-                            $("#rdf-div").html("<iframe src='http://visualrdf.dernettekleinenerd.de/?url=http://143.93.114.135/alligator-files/"+response+"' width='1200px' height='800px'></iframe>");
+                            $("#rdf-div").html("<iframe src='http://visualrdf.dernettekleinenerd.de/?url=http://143.93.114.135/alligator-files/" + response + "' width='1200px' height='800px'></iframe>");
                             $("#rdf-div").show();
                         }
                         $("#loading").hide();
