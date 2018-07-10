@@ -8,7 +8,7 @@
 	<meta name="author" content="Römisch-Germansiches Zentralmuseum, Florian Thiery">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Alligator - An Allen Transformator</title>
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -87,7 +87,18 @@
 			<table id="matrixtable"></table>
 		</div>
 		<div id="rdffile-div" class="halign"></div>
-		<div id="timeline-div" class="halign"></div>
+		<div id="timeline-div" class="halign">
+			<div class="alert alert-danger" style="margin:5px;">
+				<strong>legend</strong>
+				<br><br>
+				<ul class="list-group">
+					<li class="list-group-item blue" style="margin-bottom:10px;">fixed</li>
+					<li class="list-group-item orange" style="margin-bottom:10px;">schwebend-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+					<li class="list-group-item red" style="margin-bottom:10px;">error(end starts before start exists)-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+				</ul>
+			</div>
+			<br>
+		</div>
 		<div id="graph-div" class="halign"></div>
 		<div id="rdf-div" class="halign"></div>
 	</div>
