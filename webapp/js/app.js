@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    var API_URL = "http://localhost:8084/alligator/";
-    //var API_URL = "http://143.93.114.135/alligator/";
+    //var API_URL = "http://localhost:8084/alligator/";
+    var API_URL = "http://143.93.114.135/alligator/";
 
     // elements
     $("#matrix-div").hide();
@@ -10,6 +10,8 @@ $(document).ready(function() {
     $("#graph-div").hide();
     $("#rdf-div").hide();
     $("#refresh-div").hide();
+    $("#legend-div").hide();
+    $("#legend2-div").hide();
     $("#wrapper-div").hide();
 
     // The event listener for the file upload
@@ -47,6 +49,8 @@ $(document).ready(function() {
                         console.log(response);
                         $("#refresh-div").show();
                         $("#wrapper-div").show();
+                        $("#legend-div").show();
+                        $("#legend2-div").show();
                         $("#upload-div").hide();
                         $("#info-div").hide();
                         if (selValue === "matrixdist") {

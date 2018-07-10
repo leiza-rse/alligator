@@ -81,6 +81,24 @@
 	<div id="refresh-div" width="100%" class="alert alert-success" style="margin:10px;">
 		<center><button type="button" class="btn btn-success" onClick="location.href=location.href">go back</button></center>
 	</div>
+	<div id="legend-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<strong>legend for Allen interval relations</strong>
+		<br><br>
+		<ul class="list-group">
+			<li class="list-group-item" style="margin-bottom:10px;">1 before(
+				<) 2,> 1 after(>) 2, 1 meets(m) 2, 1 met-by(mi) 2, 1 overlaps(o) 2, 1 overlapped-by(oi) 2</li>
+			<li class="list-group-item" style="margin-bottom:10px;">1 starts(s) 2, >1 started-by(si) 2, 1 finishes(f) 2, 1 finished-by(f) 2, 1 during(d) 2, 1 contains(di) 2, 1 equals(=) 2</li>
+		</ul>
+	</div>
+	<div id="legend2-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<strong>legend for timeline items</strong>
+		<br><br>
+		<ul class="list-group">
+			<li class="list-group-item blue" style="margin-bottom:10px;">fixed</li>
+			<li class="list-group-item orange" style="margin-bottom:10px;">schwebend-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+			<li class="list-group-item red" style="margin-bottom:10px;">error(end starts before start exists)-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+		</ul>
+	</div>
 	<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px; margin:10px; " class="alert alert-warning">
 		<div id="loading" style="text-align:center;">here comes the content...</div>
 		<div id="matrix-div" class="halign">
@@ -88,18 +106,10 @@
 		</div>
 		<div id="rdffile-div" class="halign"></div>
 		<div id="timeline-div" class="halign">
-			<div class="alert alert-danger" style="margin:5px;">
-				<strong>legend</strong>
-				<br><br>
-				<ul class="list-group">
-					<li class="list-group-item blue" style="margin-bottom:10px;">fixed</li>
-					<li class="list-group-item orange" style="margin-bottom:10px;">schwebend-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
-					<li class="list-group-item red" style="margin-bottom:10px;">error(end starts before start exists)-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
-				</ul>
-			</div>
-			<br>
 		</div>
-		<div id="graph-div" class="halign"></div>
+		<div id="graph-div" class="halign">
+
+		</div>
 		<div id="rdf-div" class="halign"></div>
 	</div>
 </body>
