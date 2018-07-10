@@ -9,13 +9,19 @@ import de.rgzm.alligator.functions.RDFEvents;
 import de.rgzm.alligator.functions.Timeline;
 import de.rgzm.alligator.log.Logging;
 import de.rgzm.alligator.restconfig.ResponseGZIP;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.json.simple.JSONArray;
@@ -106,7 +112,7 @@ public class AlligatorAPI {
                     .header("Content-Type", "application/json;charset=UTF-8").build();
         }
     }
-    
+
     @POST
     @Path("/graph")
     @Consumes(MediaType.TEXT_PLAIN)
@@ -149,6 +155,40 @@ public class AlligatorAPI {
             alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
             String rdf = RDFEvents.writeRDFasText(alligator);
             return Response.ok(rdf).header("Content-Type", "text/plain;charset=UTF-8").build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
+                    .header("Content-Type", "application/json;charset=UTF-8").build();
+        }
+    }
+
+    @POST
+    @Path("/turtlefile")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces("text/turtle;charset=UTF-8")
+    public Response loadCAgetRDF(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
+        try {
+            String[] tsvsplit = tsv.split(";");
+            String[] fixedSplit = tsvsplit[0].split(",");
+            Double startFixedValue = null;
+            Double endFixedValue = null;
+            if (fixedSplit.length == 2) {
+                startFixedValue = Double.parseDouble(fixedSplit[0]);
+                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            }
+            Alligator alligator = new Alligator();
+            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            String rdf = RDFEvents.writeRDFasText(alligator);
+            String filename = "C://tmp/alligator-files/" + String.valueOf(System.currentTimeMillis()) + ".ttl"; // /opt/tomcat/webapps/alligator-files/
+            try {
+                File fileDir = new File(filename);
+                Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF8"));
+                out.append(rdf);
+                out.flush();
+                out.close();
+            } catch (IOException e) {
+                e.toString();
+            }
+            return Response.ok(filename).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
                     .header("Content-Type", "application/json;charset=UTF-8").build();
