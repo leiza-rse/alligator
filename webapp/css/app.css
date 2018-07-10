@@ -32,7 +32,7 @@ fieldset {
     display: block;
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px groove (internal value);
+    border: 2px double (internal value);
     width: 98%;
 }
 
@@ -55,6 +55,10 @@ fieldset {
 
 .greyborder {
     border: 1px dotted silver;
+}
+
+legend {
+    border-bottom: 1px solid silver !important;
 }
 
 /* custom styles for individual items, load this after vis.css/vis-timeline-graph2d.min.css */

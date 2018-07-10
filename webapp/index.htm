@@ -15,23 +15,43 @@
 	<h1>Alligator - An Allen Transformator</h1>
 	<div id="info-div" width="100%">
 		<div class="alert alert-info" style="margin:10px;">
-			<img src="alligator-400h.png" height="200">
+			<strong>About Alligator</strong>
 			<br><br>
-			<strong>About Alligator:</strong> Info...
+			<center><img src="alligator-400h.png" height="250"></center>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">Alligator reads a item name, its XYZ values of a CA, its start and end date and the fact if it is fixed or not, example <a href="https://github.com/dirkseidensticker/ChronoCongo/blob/master/data/roman2.tsv" target="_blank">here</a>. Out of the CA
+					3D data all 3D distances are calculated. For items which are not fixed (schwebend) the "next fixed neighbour" (NFN) for start or end date will be searched. If the NFN is found, the virtual year will be taken. With this result and all new calculated
+					"virtual" years, all Allen time intervals will be calculated. As a key feature, this calculation is downloadable als Ressource Description Framework (RDF) file, following the alligator <a href="https://github.com/RGZM/alligator/blob/master/docs/ontology/index.md"
+					    target="_blank">ontology</a>.</li>
+			</ul>
 		</div>
 		<div class="alert alert-success" style="margin:10px;">
-			<strong>How to use: </strong> Info...
+			<strong>How To</strong>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">1. Create a Alligator CA-File, example <a href="https://github.com/dirkseidensticker/ChronoCongo/blob/master/data/roman2.tsv" target="_blank">here</a>.</li>
+				<li class="list-group-item">2. Select the output mode.</li>
+				<li class="list-group-item">3. <i>(optional)</i> set start/end value which means that the value is not fixed.</li>
+				<li class="list-group-item">4. Choose and upload the file.</li>
+			</ul>
 		</div>
 		<div class="alert alert-danger" style="margin:10px;">
-			<strong>Credits:</strong> Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie, Florian Thiery M.Sc., Dr. Allard Mees
+			<strong>Credits</strong>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie</li>
+				<li class="list-group-item">Florian Thiery M.Sc.</li>
+				<li class="list-group-item">Dr. Allard Mees</li>
+			</ul>
 		</div>
 	</div>
-	<div id="upload-div" width="100%">
+	<div id="upload-div" width="100%" class="alert alert-info" style="margin:10px;">
 		<fieldset>
 			<legend>select the output</legend>
 			<input type="radio" name="alligator" value="matrixdist" class="form-check-input"> show the matrix of 3D distances<br>
-			<input type="radio" name="alligator" value="matrixallen" class="form-check-input"> show the matrix of Allen intervals<br>
-			<input type="radio" name="alligator" value="timeline" class="form-check-input" checked> show a "virtual" timeline<br>
+			<input type="radio" name="alligator" value="matrixallen" class="form-check-input" checked> show the matrix of Allen intervals<br>
+			<input type="radio" name="alligator" value="timeline" class="form-check-input"> show a "virtual" timeline<br>
 			<input type="radio" name="alligator" value="graph" class="form-check-input"> show the Allen interval graph<br>
 			<input type="radio" name="alligator" value="turtlefile" class="form-check-input"> show the Allen RDF Graph<br>
 			<input type="radio" name="alligator" value="turtle" class="form-check-input"> show the Allen RDF file in Turtle representation<br>
@@ -58,21 +78,18 @@
 			<input type="file" name="File Upload" id="txtFileUpload" class="form-control-file" accept=".tsv" />
 		</fieldset>
 	</div>
-	<div id="refresh-div" width="100%">
-		<fieldset>
-			<legend>Refresh</legend>
-			<input type="button" value="Refresh Page" onClick="location.href=location.href">
-		</fieldset>
+	<div id="refresh-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<center><button type="button" class="btn btn-success" onClick="location.href=location.href">go back</button></center>
 	</div>
-	<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px;">
+	<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px; margin:10px; " class="alert alert-warning">
 		<div id="loading" style="text-align:center;">here comes the content...</div>
 		<div id="matrix-div" class="halign">
 			<table id="matrixtable"></table>
 		</div>
-		<div id="rdffile-div" class="halign greyborder"></div>
+		<div id="rdffile-div" class="halign"></div>
 		<div id="timeline-div" class="halign"></div>
-		<div id="graph-div" class="halign greyborder"></div>
-		<div id="rdf-div" class="halign greyborder"></div>
+		<div id="graph-div" class="halign"></div>
+		<div id="rdf-div" class="halign"></div>
 	</div>
 </body>
 <!-- styles -->
