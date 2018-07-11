@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
-    //var API_URL = "http://localhost:8084/alligator/";
-    var API_URL = "http://143.93.114.135/alligator/";
+    var API_URL = "http://localhost:8084/alligator/";
+    //var API_URL = "http://143.93.114.135/alligator/";
 
     // elements
     $("#matrix-div").hide();
     $("#rdffile-div").hide();
+    $("#amtfile-div").hide();
     $("#timeline-div").hide();
     $("#graph-div").hide();
     $("#rdf-div").hide();
@@ -117,6 +118,18 @@ $(document).ready(function() {
                             $("#rdffile-div").show();
                             $("#rdffile-div").html("");
                             $("#rdffile-div").html("<textarea id='rdf' style='width:1px;height:auto'></textarea>");
+                            var turtle = CodeMirror.fromTextArea(document.getElementById("rdf"), {
+                                mode: "text/turtle",
+                                matchBrackets: true,
+                                lineNumbers: true,
+                            });
+                            turtle.setValue(response);
+                            turtle.setOption("theme", "darcula");
+                        }
+                        if (selValue === "amt") {
+                            $("#amtfile-div").show();
+                            $("#amtfile-div").html("");
+                            $("#amtfile-div").html("<textarea id='rdf' style='width:1px;height:auto'></textarea>");
                             var turtle = CodeMirror.fromTextArea(document.getElementById("rdf"), {
                                 mode: "text/turtle",
                                 matchBrackets: true,
