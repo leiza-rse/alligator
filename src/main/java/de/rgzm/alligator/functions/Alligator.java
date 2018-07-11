@@ -26,6 +26,7 @@ public class Alligator {
     double yearCoefficientBeginn = 1.0;
     double yearCoefficientEnd = 1.0;
     public List<String> allenRelationList = new ArrayList();
+    public List<String> allenRelationListWithSigns = new ArrayList();
 
     public Alligator calculate(String tsv, Double startFixedValue, Double endFixedValue) {
         // parse TSV as text/plain
@@ -205,8 +206,23 @@ public class Alligator {
                 if (AllenInttervalAlgebra.getAllenRelationSigns(thisEvent.a, thisEvent.b, loopEvent.a, loopEvent.b).size() > 0) {
                     allenRelations.put(loopEvent.id, AllenInttervalAlgebra.getAllenRelationSigns(thisEvent.a, thisEvent.b, loopEvent.a, loopEvent.b).get(0));
                     String p = AllenInttervalAlgebra.getAllenRelationProperties(AllenInttervalAlgebra.getAllenRelationSigns(thisEvent.a, thisEvent.b, loopEvent.a, loopEvent.b).get(0));
+                    String p2 = AllenInttervalAlgebra.getAllenRelationSigns(thisEvent.a, thisEvent.b, loopEvent.a, loopEvent.b).get(0);
                     if (thisEvent.id != loopEvent.id) {
                         allenRelationList.add("ae:" + thisEvent.id + " " + p + " ae:" + loopEvent.id + " .\r\n");
+                        String hash = getHASHIDParams(10);
+                        String weight = "-1.0";
+                        if (thisEvent.startFixed && thisEvent.endFixed) {
+                            weight = "0.99";
+                        } else {
+                            weight = "0.95";
+                        }
+                        p2 = p2.replace("<", "b");
+                        p2 = p2.replace(">", "a");
+                        p2 = p2.replace("=", "e");
+                        allenRelationListWithSigns.add("_:" + hash + " rdf:subject rgzm:" + thisEvent.id + ". \r\n"
+                                + "_:" + hash + " rdf:object rgzm:" + loopEvent.id + ". \r\n"
+                                + "_:" + hash + " rdf:predicate rgzm:" + p2 + ". \r\n"
+                                + "_:" + hash + " amt:weight \"" + weight + "\". \r\n");
                     }
                 }
             }
