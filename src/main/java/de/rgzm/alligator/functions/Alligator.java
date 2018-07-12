@@ -287,7 +287,7 @@ public class Alligator {
         return dist;
     }
 
-    private static String getHASHIDParams(int length) {
+    public static String getHASHIDParams(int length) {
         UUID newUUID = UUID.randomUUID();
         Hashids hashids = new Hashids(newUUID.toString(), length);
         String hash = hashids.encode(1234567L);
