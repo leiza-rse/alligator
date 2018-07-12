@@ -324,6 +324,24 @@
 			<artifactId>hashids</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		<!-- GitHub dependencies via https://jitpack.io - version: last commit number-->
+		<dependency>
+			<groupId>com.github.linkedgeodesy</groupId>
+			<artifactId>jena-ext</artifactId>
+			<version>c2a9de99bf</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.linkedgeodesy</groupId>
+			<artifactId>rdf4j-ext</artifactId>
+			<version>64a72d082c</version>
+		</dependency>
+		
+		<!-- https://github.com/libetl/curl -->
+		<dependency>
+			<groupId>org.toile-libre.libe</groupId>
+			<artifactId>curl</artifactId>
+			<version>LATEST</version>
+		</dependency>
 	</dependencies>
 	
 	<reporting>
