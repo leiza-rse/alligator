@@ -7,6 +7,7 @@ $(document).ready(function() {
     $("#matrix-div").hide();
     $("#rdffile-div").hide();
     $("#amtfile-div").hide();
+    $("#amtrepo-div").hide();
     $("#timeline-div").hide();
     $("#graph-div").hide();
     $("#rdf-div").hide();
@@ -137,6 +138,11 @@ $(document).ready(function() {
                             });
                             turtle.setValue(response);
                             turtle.setOption("theme", "darcula");
+                        }
+                        if (selValue === "amtrepo") {
+                            $("#amtrepo-div").show();
+                            $("#amtrepo-div").html("");
+                            $("#amtrepo-div").html("<iframe src='amt-time/index.html?repo=" + response + "' width='1200px' height='800px'></iframe>");
                         }
                         if (selValue === "turtlefile") {
                             $("#rdf-div").html("");
