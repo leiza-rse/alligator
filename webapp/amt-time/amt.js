@@ -31,7 +31,7 @@ var AMT = function() {
 	var GRAPH = { original: {nodes: [], edges: []}, edited: {nodes: [], edges: []} };
 	var AXIOMS = [];
 
-	var STORE = "http://ls-dev.i3mainz.hs-mainz.de/rdf4j-server/repositories/amtalligator";
+	var STORE = "http://ls-dev.i3mainz.hs-mainz.de/rdf4j-server/repositories/" + findGetParameter("repo");
 	var PREFIX = "http://academic-meta-tool.xyz/vocab#";
 
   var queryStore = function(query,callback) {
@@ -187,7 +187,7 @@ var AMT = function() {
 		}
 		for (var i in graph.edges) {
       var role = graph.edges[i].role.replace("http://rgzm.de/datingmechanism#","");
-      cpy.edges.push({role: graph.edges[i].role, from: graph.edges[i].from, to: graph.edges[i].to, width: graph.edges[i].width, label: role, font: {align: 'middle', size:10, color:'black', face:'arial'}});
+      cpy.edges.push({role: graph.edges[i].role, from: graph.edges[i].from, to: graph.edges[i].to, width: graph.edges[i].width, label: role, font: {align: 'middle', size:16, color:'black', face:'monospace'}});
 		}
 		return cpy;
 	};
@@ -211,7 +211,7 @@ var AMT = function() {
       if (roleShort==="q") {
         roleShort = "?";
       }
-      edges.push({role: role, from: from, to: to, width: width, label: roleShort, font: {align: 'middle', size:10, color:'red', face:'arial'}});
+      edges.push({role: role, from: from, to: to, width: width, label: roleShort, font: {align: 'middle', size:18, color:'red', face:'monospace'}});
 			return true;
 		}
 		return false;
