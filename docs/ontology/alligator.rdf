@@ -28,8 +28,7 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#label" vs:term_status="stable" rdfs:label="label" rdfs:comment="">
-    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label" />
+  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="label" rdfs:comment="">
 	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
