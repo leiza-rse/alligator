@@ -6,7 +6,7 @@
 	xmlns:alligator="http://rgzm.github.io/alligator/vocab#" 
 	xmlns:wot="http://xmlns.com/wot/0.1/" 
 	xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <owl:Ontology rdf:about="http://rgzm.github.io/alligator/vocab#" dc:title="Alligator Vocabulary" dc:description="Alligator Vocabulary" >
+  <owl:Ontology rdf:about="http://rgzm.github.io/alligator/vocab#" dc:title="Alligator Vocabulary" dc:description="Alligator Vocabulary" owl:versionInfo "2.2" dc:creator "Florian Thiery">
   </owl:Ontology>
 
   <rdfs:Class rdf:about="http://rgzm.github.io/alligator/vocab#Event" rdfs:label="Event" rdfs:comment="	A temporal interval or instant." vs:term_status="stable">
