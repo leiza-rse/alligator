@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Alligator Ontology</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./index_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./index_files/syntax.css">
+    <link rel="stylesheet" href="./index_files/main.css">
+</head>
+
+<body>
+<section class="content">
+<article class="splash">
+
+<h1 id="amt-vocabulary">Alligator Ontology</h1>
+<p><strong>Authors</strong>: Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)</p>
+<p><strong>Version</strong>: <a href="https://de.wikipedia.org/wiki/%C3%96dsbysj%C3%B6n">Ödsbysjön</a></p>
+<p><strong>Date</strong>: 2018-08-19</p>
+<p><strong>Abstract</strong>: An ontology and datamodel for Alligator.</p>
+<p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
+
+<h2 id="amt-classes">Ontology</h2>
+<p>The ontology is based on #.</p>
+<h3><a name="Concept">alligator:Event</a></h3>
+<h4><a name="example1">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix alligator: &lt;http://rgzm.github.io/alligator/vocab#> .
+          @prefix ae: &lt;http://example.net/event#> .
+          @prefix time: &lt;http://www.w3.org/2006/time#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix dc: &lt;http://purl.org/dc/elements/1.1/> .
+          ae:example
+               a alligator:Event ;
+               a time:Interval ;
+               dc:identifier "example" ;
+               rdfs:label "DomitianConsulate2" ;
+               alligator:estimatedstart "81.0" ;
+               alligator:estimatedend "96.0" ;
+               alligator:cax "-0.2646" ;
+               alligator:cay "-0.856" ;
+               alligator:caz "1.0336" ;
+               alligator:startfixed "false" ;
+               alligator:endfixed "false" ;
+               alligator:nfsn "Example 3" ;
+               alligator:nfen "Example 3" ;
+               alligator:nfsnE ae:example3 ;
+               alligator:nfenE ae:example3 ;
+               time:intervalContains ae:example2 .</code>
+    </pre>
+</figure>
+
+</article>
+</section>
+</body>
+</html>
