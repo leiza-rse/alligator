@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Alligator Vocabulary</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./index_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./index_files/syntax.css">
+    <link rel="stylesheet" href="./index_files/main.css">
+</head>
+
+<body>
+<section class="content">
+<article class="splash">
+
+<h1 id="amt-vocabulary">Alligator Vocabulary</h1>
+<p><strong>Authors</strong>: Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)</p>
+<p><strong>Version</strong>: <a href="https://de.wikipedia.org/wiki/V%C3%A4ttern">Vättern Edition</a></p>
+<p><strong>Date</strong>: 2018-08-19</p>
+<p><strong>Abstract</strong>: A vocabulary for Alligator</a>.</p>
+<p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
+
+<h2 id="vocabulary">Vocabulary</h2>
+<p>Alligator Vocabulary is published as RDF at <a href="#">#</a>.</p>
+<p>An HTML version is published at <a href="http://rgzm.github.io/alligator/vocab/">http://rgzm.github.io/alligator/vocab/</a>.</p>
+
+<h2 id="namespace">Namespace</h2>
+<p>The official Alligator Vocabulary namespace is <code class="highlighter-rouge">http://rgzm.github.io/alligator/vocab#</code>.</p>
+
+<h2 id="alligator-classes">Alligator Classes</h2>
+<p>Below are Linked Data identifiers for the Alligator Classes found in the Alligator Vocabulary.</p>
+<h3>General Classes</h3>
+<h3><a name="Event">alligator:Event</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI:</td>
+    <td><code>http://rgzm.github.io/alligator/vocab#Event</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>A temporal interval or instant.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>Alligator Event</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:subClassOf</td>
+    <td><code><a href="http://www.w3.org/2006/time#TemporalEntity">http://www.w3.org/2006/time#TemporalEntity</a></code></td>
+  </tr>
+  <tr>
+    <td>Instance:</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+
+<h2 id="core-properties">Alligator Properties</h2>
+<p>Below are Linked Data identifiers for the Alligator Properties found in the Alligator Vocabulary.</p>
+
+<h3>virtual fuzzy years</h3>
+<h3><a name="estimatedstart">estimatedstart</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#estimatedstart</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Estimated Event Start Date (double).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>estimated start date</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="estimatedend">estimatedend</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#estimatedend</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Estimated Event End Date (double).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>estimated end date</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+
+<h3>ca</h3>
+<h3><a name="cax">cax</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#cax</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>x-value of the CA (double).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>ca x</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="cay">cay</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#cay</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>y-value of the CA (double).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>ca y</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="caz">caz</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#caz</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>z-value of the CA (double).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>ca z</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+
+<h3>fixed</h3>
+<h3><a name="startfixed">startfixed</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#startfixed</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Shows if the start date value is fixed (boolean).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>start fixed</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="endfixed">endfixed</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#endfixed</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Shows if the end date value is fixed (boolean).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>end fixed</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+
+<h3>next fixed neighbour</h3>
+<h3><a name="nfsn">nfsn</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#nfsn</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If the start value is not fixed, the next fixed start neighbour is shown (string).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>next fixed start neighbour</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="nfen">nfen</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#nfen</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If the end value is not fixed, the next fixed end neighbour is shown (string).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>next fixed end neighbour</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
+  </tr>
+</table>
+<h3><a name="nfsn">nfsnE</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#nfsnE</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If the start value is not fixed, the next fixed start neighbour is shown (Event).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>next fixed start neighbour</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="nfen">nfenE</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#nfenE</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If the end value is not fixed, the next fixed end neighbour is shown (Event).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>next fixed end neighbour</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+
+</article>
+</section>
+</body>
+</html>
