@@ -16,6 +16,19 @@
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdfs:Class>
   
+  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="label" rdfs:comment="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/dc/elements/1.1/identifier" vs:term_status="stable" rdfs:label="identifier" rdfs:comment="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#estimatedstart" vs:term_status="stable" rdfs:label="estimatedstart" rdfs:comment="">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -61,26 +74,25 @@
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
   
-  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="label" rdfs:comment="">
+  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfsn" vs:term_status="stable" rdfs:label="nfen" rdfs:comment="If the start value is not fixed, the next fixed start neighbour is shown (string).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://purl.org/dc/elements/1.1/identifier" vs:term_status="stable" rdfs:label="identifier" rdfs:comment="">
+  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfen" vs:term_status="stable" rdfs:label="nfsn" rdfs:comment="If the end value is not fixed, the next fixed start neighbour is shown (string).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
-  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfenE" vs:term_status="stable" rdfs:label="nfenE" rdfs:comment="">
+  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfenE" vs:term_status="stable" rdfs:label="nfenE" rdfs:comment="If the start value is not fixed, the next fixed start neighbour is shown.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfsnE" vs:term_status="stable" rdfs:label="nfsnE" rdfs:comment="">
+  <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfsnE" vs:term_status="stable" rdfs:label="nfsnE" rdfs:comment="If the end value is not fixed, the next fixed start neighbour is shown.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
