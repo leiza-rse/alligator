@@ -133,5 +133,59 @@
     <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalOverlaps" vs:term_status="stable" rdfs:label="o" rdfs:comment="If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalOverlappedBy" vs:term_status="stable" rdfs:label="oi" rdfs:comment="If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalStarts" vs:term_status="stable" rdfs:label="s" rdfs:comment="If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalStartedBy" vs:term_status="stable" rdfs:label="si" rdfs:comment="If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalFinishes" vs:term_status="stable" rdfs:label="f" rdfs:comment="If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalFinishedBy" vs:term_status="stable" rdfs:label="fi" rdfs:comment="If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalDuring" vs:term_status="stable" rdfs:label="d" rdfs:comment="If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalContains" vs:term_status="stable" rdfs:label="di" rdfs:comment="If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalEquals" vs:term_status="stable" rdfs:label="e" rdfs:comment="If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
+  </rdf:Property>
 
 </rdf:RDF>
