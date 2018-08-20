@@ -24,9 +24,8 @@ public class RDFEvents {
             AlligatorEvent ae = (AlligatorEvent) event;
             String aeSubject = "ae:" + ae.id;
             rdfString.append(aeSubject).append(" a alligator:Event").append(" .\r\n");
-            rdfString.append(aeSubject).append(" dc:identifier \"").append(ae.id).append("\" .\r\n");
             rdfString.append(aeSubject).append(" alligator:eventname \"").append(ae.name).append("\" .\r\n");
-            rdfString.append(aeSubject).append(" rdfs:label \"").append(ae.name).append("\" .\r\n");
+            rdfString.append(aeSubject).append(" dc:identifier \"").append(ae.id).append("\" .\r\n");
             rdfString.append(aeSubject).append(" alligator:estimatedstart \"").append(ae.a).append("\" .\r\n");
             rdfString.append(aeSubject).append(" alligator:estimatedend \"").append(ae.b).append("\" .\r\n");
             rdfString.append(aeSubject).append(" alligator:cax \"").append(ae.x).append("\" .\r\n");
