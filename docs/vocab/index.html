@@ -23,11 +23,15 @@
 <p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
 
 <h2 id="vocabulary">Vocabulary</h2>
-<p>Alligator Vocabulary is published as RDF at <a href="#">#</a>.</p>
+<p>Alligator Vocabulary is published as RDF on <a href="https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf">GitHub</a>.</p>
 <p>An HTML version is published at <a href="http://rgzm.github.io/alligator/vocab/">http://rgzm.github.io/alligator/vocab/</a>.</p>
 
 <h2 id="namespace">Namespace</h2>
 <p>The official Alligator Vocabulary namespace is <code class="highlighter-rouge">http://rgzm.github.io/alligator/vocab#</code>.</p>
+
+<h2 id="visualisation">Visualisation</h2>
+<p><a href="http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf" target="_blank"><img src="alligator.png" width="60%"></a></p>
+<p>An interactive visualisation using <a href="http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf" target="_blank">WebVOWL</a>.</p>
 
 <h2 id="alligator-classes">Alligator Classes</h2>
 <p>Below are Linked Data identifiers for the Alligator Classes found in the Alligator Vocabulary.</p>
@@ -64,7 +68,7 @@
 <p>Below are Linked Data identifiers for the Alligator Properties found in the Alligator Vocabulary.</p>
 
 <h3>name</h3>
-<h3><a name="estimatedstart">eventname</a></h3>
+<h3><a name="eventname">eventname</a></h3>
 <table>
   <tr>
     <td width='200px'>URI: </td>
@@ -77,6 +81,29 @@
   <tr>
     <td>Label:</td>
     <td><code>event name</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></code></td>
+  </tr>
+</table>
+<h3><a name="identifier">identifier</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://purl.org/dc/elements/1.1/identifier</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Identifier if the event (string).</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>dc:identifier</code></td>
   </tr>
   <tr>
     <td>rdfs:domain</td>
@@ -338,6 +365,307 @@
   <tr>
     <td>Label:</td>
     <td><code>next fixed end neighbour event</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+
+<h3>Allen Time Intervals</h3>
+<h3><a name="b">b</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalBefore</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>b</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="a">a</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalAfter</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>a</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="m">m</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalMeets</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>m</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="mi">mi</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalMetBy</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>mi</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="o">o</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalOverlaps</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>o</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="oi">oi</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalOverlappedBy</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>oi</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="s">s</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalStarts</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>s</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="si">si</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalStartedBy</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>si</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="f">f</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalFinishes</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>f</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="fi">fi</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalFinishedBy</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>fi</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="d">d</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalDuring</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>d</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="di">di</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalContains</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>di</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+  </tr>
+</table>
+<h3><a name="e">e</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://www.w3.org/2006/time#intervalEquals</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>e</code></td>
   </tr>
   <tr>
     <td>rdfs:domain</td>
