@@ -14,8 +14,8 @@
     dc:title="The Alligator Vocabulary"
     owl:versionInfo="Vättern"
     dc:creator="Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)"
-    dc:licence="http://creativecommons.org/licenses/by/4.0/">
-    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-18</dc:created>
+    dc:licence="http://creativecommons.org/licenses/by/4.0/"
+    dc:created="2018-08-18">
   </owl:Ontology>
 
   <rdfs:Class rdf:about="http://rgzm.github.io/alligator/vocab#Event" rdfs:label="Event" rdfs:comment="	A temporal interval or instant." vs:term_status="stable">
