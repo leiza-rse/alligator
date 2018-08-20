@@ -109,13 +109,13 @@
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
 <!-- Properties: Allen intervals -->
-  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalBefore" vs:term_status="stable" rdfs:label="<" rdfs:comment="If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.">
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalBefore" vs:term_status="stable" rdfs:label="b" rdfs:comment="If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.">
       <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
       <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
       <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
   <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalAfter" vs:term_status="stable" rdfs:label=">" rdfs:comment="If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.">
+  <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalAfter" vs:term_status="stable" rdfs:label="a" rdfs:comment="If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
