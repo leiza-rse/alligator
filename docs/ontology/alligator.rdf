@@ -1,13 +1,21 @@
-<rdf:RDF 
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
-    xmlns:owl="http://www.w3.org/2002/07/owl#" 
-    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" 
-    xmlns:alligator="http://rgzm.github.io/alligator/vocab#" 
-    xmlns:wot="http://xmlns.com/wot/0.1/" 
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    xmlns:alligator="http://rgzm.github.io/alligator/vocab#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:time="http://www.w3.org/2006/time#">
-  <owl:Ontology rdf:about="http://rgzm.github.io/alligator/vocab#" dc:title="Alligator Vocabulary" dc:description="Alligator Vocabulary" owl:versionInfo="1.0" dc:creator="Florian Thiery">
+  <owl:Ontology
+    rdf:about="http://rgzm.github.io/alligator/vocab#"
+    dc:title="Alligator Vocabulary"
+    dc:description="The Alligator Vocabulary"
+    dc:title="The Alligator Vocabulary"
+    owl:versionInfo="Vättern"
+    dc:creator="Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)"
+    dc:licence="http://creativecommons.org/licenses/by/4.0/">
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-18</dc:created>
   </owl:Ontology>
 
   <rdfs:Class rdf:about="http://rgzm.github.io/alligator/vocab#Event" rdfs:label="Event" rdfs:comment="	A temporal interval or instant." vs:term_status="stable">
@@ -16,7 +24,7 @@
     <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2006/time#Interval"/></rdfs:subClassOf>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdfs:Class>
-  
+
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#eventname" vs:term_status="stable" rdfs:label="event name" rdfs:comment="">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -29,7 +37,7 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
+
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#estimatedstart" vs:term_status="stable" rdfs:label="estimated start date" rdfs:comment="Estimated Event Start Date (double).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -42,7 +50,7 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
+
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#cax" vs:term_status="stable" rdfs:label="cax" rdfs:comment="x-value of the CA (double).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -61,7 +69,7 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
+
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#startfixed" vs:term_status="stable" rdfs:label="startfixed" rdfs:comment="Shows if the start date value is fixed (boolean).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -74,7 +82,7 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
+
   <rdf:Property rdf:about="http://rgzm.github.io/alligator/vocab#nfsn" vs:term_status="stable" rdfs:label="nfen" rdfs:comment="If the start value is not fixed, the next fixed start neighbour is shown (string).">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
@@ -99,7 +107,7 @@
     <rdfs:range rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
     <rdfs:isDefinedBy rdf:resource="http://rgzm.github.io/alligator/vocab/"/>
   </rdf:Property>
-  
+
   <rdf:Property rdf:about="http://www.w3.org/2006/time#intervalAfter" vs:term_status="stable" rdfs:label="after" rdfs:comment="If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://rgzm.github.io/alligator/vocab#Event"/>
