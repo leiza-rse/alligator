@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Alligator</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./index_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./index_files/syntax.css">
+    <link rel="stylesheet" href="./index_files/main.css">
+</head>
+
+<body>
+<section class="content">
+<article class="splash">
+
+<h1 id="amt-vocabulary">Alligator</h1>
+
+<h2 id="about">Credits</h2>
+
+<p><strong>Institutions</strong>: RGZM - Römisch-Germanisches Zentralmuseum Mainz</p>
+<p><strong>Developers</strong>: Florian Thiery (RGZM) & Allard Mees (RGZM)</p>
+<p><strong>Vocabulary</strong>: <a href="https://rgzm.github.io/alligator/vocab/">Vättern Edition</a> <a href="https://doi.org/10.5281/zenodo.1436351"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1436351.svg" alt="DOI"></a></p>
+<p><strong>Abstract</strong>: A proposal ontology and web app for transforming a correspondence analyses with fixed and floating time intervals to a relative chronology and RDF representation using Allen's interval algebra.</p>
+<p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
+
+<h2 id="talks">Talks</h2>
+<p><img src="https://img.shields.io/badge/D. Seidensticker, F. Thiery, A. Mees, C. Schmid-EAA 2018-lightgrey.svg?style=flat-square">&nbsp;<a href="https://doi.org/10.5281/zenodo.1410516"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1410516.svg" alt="DOI"></a></p>
+
+<h2 id="other">The Alligator Method</h2>
+<ul>
+  <li>Step 1: All 3D distances between the CA time periods are calculated</li>
+  <li>Step 2: The nearest 3D CA neighbours for start and end years of the floating intervals towards intervals with fixed values are located</li>
+  <li>Step 3: the result is stored as a “calculated virtual fuzzy year”</li>
+  <li>Step 4: the intermediate result of the fixed and floating time intervals is stored as a list of “virtual fuzzy start and end years”</li>
+  <li>Step 5: the “virtual fuzzy years” are transformed to relative time intervals using Allen interval algebra</li>
+  <li>Step 6: create a RDF representation in order to achieve a representation of the state of knowledge concerning the temporal sequences of time intervals, which is transparent, interoperable, semantically described and machine readable
+  <li>Step 7: visualisation of the results</li>
+  <li>Step 8: look for contradictions</li>
+  <li>Step 9: resolve them and start with step 1</li>
+</ul>
+
+</article>
+</section>
+</body>
+</html>
