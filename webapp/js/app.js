@@ -6,6 +6,7 @@ $(document).ready(function() {
     // elements
     $("#matrix-div").hide();
     $("#rdffile-div").hide();
+    $("#cypherfile-div").hide();
     $("#amtfile-div").hide();
     $("#amtrepo-div").hide();
     $("#timeline-div").hide();
@@ -126,6 +127,17 @@ $(document).ready(function() {
                             });
                             turtle.setValue(response);
                             turtle.setOption("theme", "darcula");
+                        }
+                        if (selValue === "cypher") {
+                            $("#cypherfile-div").show();
+                            $("#cypherfile-div").html("");
+                            $("#cypherfile-div").html("<textarea id='cypher' style='width:1px;height:auto'></textarea>");
+                            var cypher = CodeMirror.fromTextArea(document.getElementById("cypher"), {
+                                mode: "application/x-cypher-query",
+                                lineNumbers: true
+                            });
+                            cypher.setValue(response);
+                            cypher.setOption("theme", "darcula");
                         }
                         if (selValue === "amt") {
                             $("#amtfile-div").show();
