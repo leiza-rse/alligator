@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-    var API_URL = "http://localhost:8084/alligator/";
+    //var API_URL = "http://localhost:8084/alligator/";
     //var API_URL = "http://143.93.114.135/alligator/";
+    var API_URL = "https://java-dev.rgzm.de/alligator/";
 
     // elements
     $("#matrix-div").hide();
