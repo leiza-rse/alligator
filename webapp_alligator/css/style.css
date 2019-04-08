@@ -86,11 +86,11 @@ a {
 }
 
 .loginbg {
-    background-image: url(ars3d_logo.png);
+    background-image: url(Alligator_quad_5000_6000_00FEB5.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #4ec1e4 !important;
+    background-color: #00FEB5 !important;
 }
 
 .header {
