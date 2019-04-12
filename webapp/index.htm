@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Alligator - An Allen Transformator">
+	<meta name="keywords" content="Allen,Linked Data">
+	<meta name="author" content="Römisch-Germansiches Zentralmuseum, Florian Thiery">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alligator - An Allen Transformator</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+	<h1>Alligator - An Allen Transformator</h1>
+	<div id="info-div" width="100%">
+		<div class="alert alert-info" style="margin:10px;">
+			<strong>About Alligator</strong>
+			<br><br>
+			<center><img src="Alligator_16_9.png" height="250"></center>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">Alligator reads a item name, its XYZ values of a CA, its start and end date and the fact if it is fixed or not, example <a href="https://github.com/dirkseidensticker/ChronoCongo/blob/master/data/roman2.tsv" target="_blank">here</a>. Out of the CA
+					3D data all 3D distances are calculated. For items which are not fixed (schwebend) the "next fixed neighbour" (NFN) for start or end date will be searched. If the NFN is found, the virtual year will be taken. With this result and all new calculated
+					"virtual" years, all Allen time intervals will be calculated. As a key feature, this calculation is downloadable als Ressource Description Framework (RDF) file, following the alligator <a href="https://github.com/RGZM/alligator/blob/master/docs/ontology/index.md"
+					    target="_blank">ontology</a>.</li>
+			</ul>
+		</div>
+		<div class="alert alert-success" style="margin:10px;">
+			<strong>How To</strong>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">1. Create a Alligator CA-File, example <a href="https://github.com/dirkseidensticker/ChronoCongo/blob/master/data/roman2.tsv" target="_blank">here</a>.</li>
+				<li class="list-group-item">2. Select the output mode.</li>
+				<li class="list-group-item">3. <i>(optional)</i> set start/end value which means that the value is not fixed.</li>
+				<li class="list-group-item">4. Choose and upload the file.</li>
+			</ul>
+		</div>
+		<div class="alert alert-danger" style="margin:10px;">
+			<strong>Credits</strong>
+			<br><br>
+			<ul class="list-group">
+				<li class="list-group-item">Römisch-Germanisches Zentralmuseum - Leibniz Forschungsinstitut für Archäologie</li>
+				<li class="list-group-item">Florian Thiery M.Sc.</li>
+				<li class="list-group-item">Dr. Allard Mees</li>
+			</ul>
+		</div>
+	</div>
+	<div id="upload-div" width="100%" class="alert alert-info" style="margin:10px;">
+		<fieldset>
+			<legend>select the output</legend>
+			<input type="radio" name="alligator" value="matrixdist" class="form-check-input"> show the matrix of 3D distances<br>
+			<input type="radio" name="alligator" value="matrixallen" class="form-check-input" checked> show the matrix of Allen intervals<br>
+			<input type="radio" name="alligator" value="timeline" class="form-check-input"> show a "virtual" timeline<br>
+			<input type="radio" name="alligator" value="graph" class="form-check-input"> show the Allen interval graph<br>
+			<input type="radio" name="alligator" value="turtlefile" class="form-check-input"> show the Allen RDF Graph<br>
+			<input type="radio" name="alligator" value="turtle" class="form-check-input"> show the Allen RDF file in Turtle representation<br>
+			<input type="radio" name="alligator" value="cypher" class="form-check-input"> show the Allen in a CYPHER representation<br>
+			<input type="radio" name="alligator" value="amt" class="form-check-input"> show a Academic Meta Tool (AMT) RDF file in Turtle representation<br>
+			<input type="radio" name="alligator" value="amtrepo" class="form-check-input"> show a data in Academic Meta Tool (AMT) web viewer<br>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>select date type (if one is empty, not used)</legend>
+			<div class="form-group row">
+				<div class="col-xs-2">
+					<label for="exampleInputEmail1">start not fixed value</label>
+					<input type="text" class="form-control" id="startfixed" placeholder="20.0">
+					<small id="startfixedhelp" class="form-text text-muted">start year that means not fixed.</small>
+				</div>
+				<div class="col-xs-2">
+					<label for="exampleInputEmail1">end not fixed value</label>
+					<input type="text" class="form-control" id="endfixed" placeholder="130.0">
+					<small id="endfixedhelp" class="form-text text-muted">end year that means not fixed.</small>
+				</div>
+			</div>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Upload your CSV File</legend>
+			<input type="file" name="File Upload" id="txtFileUpload" class="form-control-file" accept=".tsv" />
+		</fieldset>
+	</div>
+	<div id="refresh-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<center><button type="button" class="btn btn-success" onClick="location.href=location.href">go back</button></center>
+	</div>
+	<div id="legend-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<strong>legend for Allen interval relations</strong>
+		<br><br>
+		<ul class="list-group">
+			<li class="list-group-item" style="margin-bottom:10px;">1 before(
+				<) 2,> 1 after(>) 2, 1 meets(m) 2, 1 met-by(mi) 2, 1 overlaps(o) 2, 1 overlapped-by(oi) 2</li>
+			<li class="list-group-item" style="margin-bottom:10px;">1 starts(s) 2, >1 started-by(si) 2, 1 finishes(f) 2, 1 finished-by(f) 2, 1 during(d) 2, 1 contains(di) 2, 1 equals(=) 2</li>
+		</ul>
+	</div>
+	<div id="legend2-div" width="100%" class="alert alert-success" style="margin:10px;">
+		<strong>legend for timeline items</strong>
+		<br><br>
+		<ul class="list-group">
+			<li class="list-group-item blue" style="margin-bottom:10px;">fixed</li>
+			<li class="list-group-item orange" style="margin-bottom:10px;">schwebend-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+			<li class="list-group-item red" style="margin-bottom:10px;">error(end starts before start exists)-->nextFixedNeighbour(start),nextFixedNeighbour(end) * means value was fixed</li>
+		</ul>
+	</div>
+	<div id="wrapper-div" width="100%" style="border: 0px solid blue; padding: 10px; margin:10px; " class="alert alert-warning">
+		<div id="loading" style="text-align:center;">here comes the content...</div>
+		<div id="matrix-div" class="halign">
+			<table id="matrixtable"></table>
+		</div>
+		<div id="rdffile-div" class="halign"></div>
+		<div id="cypherfile-div" class="halign"></div>
+		<div id="amtfile-div" class="halign"></div>
+		<div id="amtrepo-div" class="halign"></div>
+		<div id="timeline-div" class="halign">
+		</div>
+		<div id="graph-div" class="halign">
+		</div>
+		<div id="rdf-div" class="halign"></div>
+	</div>
+</body>
+<!-- styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/style.min.css" />
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="codemirror/codemirror.css">
+<link rel="stylesheet" href="codemirror/darcula.css">
+<link href="css/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+<!-- scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.csv-0.71.min.js"></script>
+<script src="codemirror/codemirror.js"></script>
+<script src="codemirror/turtle.js"></script>
+<script src="js/vis.js"></script>
+<script src="js/app.js"></script>
+
+</html>
