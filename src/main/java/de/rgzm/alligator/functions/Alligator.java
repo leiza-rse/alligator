@@ -274,6 +274,15 @@ public class Alligator {
     }
 
     private double distance3D(double x1, double y1, double z1, double x2, double y2, double z2) {
+        /*double valDim1 = 0.26;
+        double valDim2 = 0.20;
+        double valDim3 = 0.12;
+        x1 = x1 / valDim1;
+        x2 = x2 / valDim1;
+        y1 = y1 / valDim2;
+        y2 = y2 / valDim2;
+        z1 = z1 / valDim3;
+        z2 = z2 / valDim3;*/
         double a = Math.pow((x2 - x1), 2);
         double b = Math.pow((y2 - y1), 2);
         double c = Math.pow((z2 - z1), 2);
