@@ -24,7 +24,7 @@ public class AlligatorEvent {
     public String nn_end_name = null;
     public String nn_start_id = null;
     public String nn_end_id = null;
-    public String schwebend = "foo";
+    public String floating = "foo";
     public HashMap allenRelations;
     
     public String toString() {

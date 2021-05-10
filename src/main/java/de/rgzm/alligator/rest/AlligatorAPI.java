@@ -23,7 +23,6 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.json.simple.JSONArray;
@@ -49,16 +48,22 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             JSONArray matrixJSON = MatrixAllen.writeMatrixAsJSONArray(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
@@ -73,16 +78,22 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             JSONArray matrixJSON = MatrixDist.writeMatrixAsJSONArray(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, matrixJSON.toString());
         } catch (Exception e) {
@@ -97,16 +108,22 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetTIMELINEJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             JSONArray timelineJSON = Timeline.writeTimelineJSON(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, timelineJSON.toString());
         } catch (Exception e) {
@@ -121,16 +138,22 @@ public class AlligatorAPI {
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     public Response loadCAgetGRAPHJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             JSONObject graphJSON = Graph.writeGraphJSON(alligator);
             return ResponseGZIP.setResponse(acceptEncoding, graphJSON.toString());
         } catch (Exception e) {
@@ -145,16 +168,22 @@ public class AlligatorAPI {
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetRDFFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             String rdf = RDFEvents.writeRDFasText(alligator);
             return Response.ok(rdf).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {
@@ -162,23 +191,29 @@ public class AlligatorAPI {
                     .header("Content-Type", "application/json;charset=UTF-8").build();
         }
     }
-    
+
     @POST
     @Path("/cypher")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetCYPHERFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             String cypher = Cypher.writeCypher(alligator);
             return Response.ok(cypher).header("Content-Type", "application/x-cypher-query;charset=UTF-8").build();
         } catch (Exception e) {
@@ -186,23 +221,29 @@ public class AlligatorAPI {
                     .header("Content-Type", "application/json;charset=UTF-8").build();
         }
     }
-    
+
     @POST
     @Path("/amt")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetAMTFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             String rdf = AMTEvents.writeRDFAsText(alligator);
             return Response.ok(rdf).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {
@@ -210,23 +251,29 @@ public class AlligatorAPI {
                     .header("Content-Type", "application/json;charset=UTF-8").build();
         }
     }
-    
+
     @POST
     @Path("/amtrepo")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetAMTREPO(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             String url = AMTEvents.writeRDFInRDF4JRepository(alligator);
             return Response.ok(url).header("Content-Type", "text/plain;charset=UTF-8").build();
         } catch (Exception e) {
@@ -241,20 +288,26 @@ public class AlligatorAPI {
     @Produces("text/turtle;charset=UTF-8")
     public Response loadCAgetRDF(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
-            String[] tsvsplit = tsv.split(";");
-            String[] fixedSplit = tsvsplit[0].split(",");
+            String[] split = tsv.split("#data");
+            String metadata = split[0].replace("\r\n", "");
+            String[] metadata_split = metadata.split("#");
+            String data = split[1].replaceFirst("\r\n", "");
             Double startFixedValue = null;
             Double endFixedValue = null;
-            if (fixedSplit.length == 2) {
-                startFixedValue = Double.parseDouble(fixedSplit[0]);
-                endFixedValue = Double.parseDouble(fixedSplit[1]);
+            String ca_params = null;
+            startFixedValue = Double.parseDouble(metadata_split[1]);
+            endFixedValue = Double.parseDouble(metadata_split[1]);
+            if (metadata_split[2].equals("false")) {
+                ca_params = "1.0#1.0#1.0";
+            } else {
+                ca_params = metadata_split[3].replace("|", "#");
             }
             Alligator alligator = new Alligator();
-            alligator = alligator.calculate(tsvsplit[1], startFixedValue, endFixedValue);
+            alligator = alligator.calculate(data, startFixedValue, endFixedValue, ca_params);
             String rdf = RDFEvents.writeRDFasText(alligator);
             String filename = String.valueOf(System.currentTimeMillis()) + ".ttl";
             //String filenpath = "C://tmp/alligator-files/" + filename;
-            String filenpath = "/opt/tomcat/webapps/alligator-files/"  + filename;
+            String filenpath = "/opt/tomcat/webapps/alligator-files/" + filename;
             try {
                 File fileDir = new File(filenpath);
                 Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF8"));

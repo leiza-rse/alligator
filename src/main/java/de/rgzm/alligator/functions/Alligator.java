@@ -28,7 +28,7 @@ public class Alligator {
     public List<String> allenRelationList = new ArrayList();
     public List<String> allenRelationListWithSigns = new ArrayList();
 
-    public Alligator calculate(String tsv, Double startFixedValue, Double endFixedValue) {
+    public Alligator calculate(String tsv, Double startFixedValue, Double endFixedValue, String ca_params) {
         // parse TSV as text/plain
         String[] lines = null;
         List inputfile = new ArrayList();
@@ -45,7 +45,7 @@ public class Alligator {
         // create alligator events
         alligator.writeToAlligatorEventList(inputfile, startFixedValue, endFixedValue);
         // calculate distances
-        alligator.calculateDistances();
+        alligator.calculateDistances(ca_params);
         // calculate next fixed neighbours
         alligator.getNextFixedNeighbours();
         // output virtual years
@@ -79,10 +79,10 @@ public class Alligator {
                 ae.z = Double.parseDouble(linesplit[3]);
                 ae.a = Double.parseDouble(linesplit[4]);
                 ae.b = Double.parseDouble(linesplit[5]);
-                ae.schwebend = linesplit[6];
+                ae.floating = linesplit[6];
                 // check if beginn or end is fixed and populate id lists
                 if (startFixedValue == null && endFixedValue == null) {
-                    if (ae.schwebend.equals("schwebend")) {
+                    if (ae.floating.equals("floating")) {
                         ae.startFixed = false;
                         ae.endFixed = false;
                     } else {
@@ -122,13 +122,13 @@ public class Alligator {
         }
     }
 
-    public void calculateDistances() {
+    public void calculateDistances(String ca_params) {
         for (Object event : events) {
             AlligatorEvent thisEvent = (AlligatorEvent) event;
             HashMap distances = new HashMap();
             for (Object event2 : events) {
                 AlligatorEvent loopEvent = (AlligatorEvent) event2;
-                distances.put(loopEvent.id, distance3D(thisEvent.x, thisEvent.y, thisEvent.z, loopEvent.x, loopEvent.y, loopEvent.z));
+                distances.put(loopEvent.id, distance3D(thisEvent.x, thisEvent.y, thisEvent.z, loopEvent.x, loopEvent.y, loopEvent.z, ca_params));
             }
             thisEvent.distances = distances;
         }
@@ -273,19 +273,14 @@ public class Alligator {
         return null;
     }
 
-    private double distance3D(double x1, double y1, double z1, double x2, double y2, double z2) {
-        double valDim1 = 0.26;
-        double valDim2 = 0.20;
-        double valDim3 = 0.12;
+    private double distance3D(double x1, double y1, double z1, double x2, double y2, double z2, String ca_params) {
+        String params[] = ca_params.split("#");
+        double valDim1 = Double.parseDouble(params[0]);
+        double valDim2 = Double.parseDouble(params[1]);
+        double valDim3 = Double.parseDouble(params[2]);
         double valDim1_1 = 1;
         double valDim1_2 = (1 / valDim1) * (valDim2);
         double valDim1_3 = (1 / valDim1) * (valDim3);
-        /*double valDim1_1 = 1;
-        double valDim1_2 = (1 / valDim1) * (valDim2 * 0.5);
-        double valDim1_3 = (1 / valDim1) * (valDim3 * 0.5);
-        double valDim1_1 = 1;
-        double valDim1_2 = (1 / valDim1) * (valDim2 * 0.2);
-        double valDim1_3 = (1 / valDim1) * (valDim3 * 0.2);*/
         x1 = x1 * valDim1_1;
         x2 = x2 * valDim1_1;
         y1 = y1 * valDim1_2;
