@@ -19,7 +19,7 @@ identifiers:
     value: "10.5281/zenodo.2540709"
   - description: This is the archived snapshot of version 1.0
     type: doi
-    value: "10.5281/zenodo.xyz"
+    value: "10.5281/zenodo.7391278"
   - description: This is the archived snapshot of version 0.1
     type: doi
     value: "10.5281/zenodo.2540710"
