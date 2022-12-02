@@ -284,7 +284,7 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
-			<version>3.0.9.Final</version>
+			<version>3.0.20.Final</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.httpcomponents</groupId>
@@ -299,7 +299,7 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
-			<version>3.0.9.Final</version>
+			<version>3.0.20.Final</version>
 		</dependency>
 		<!-- JSON-LD -->
 		<dependency>
