@@ -3,6 +3,8 @@ package de.rgzm.alligator.functions;
 import de.rgzm.alligator.classes.AlligatorEvent;
 import de.rgzm.alligator.log.Logging;
 import de.rgzm.alligator.allen.AllenInttervalAlgebra;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +31,11 @@ public class Alligator {
     public List<String> allenRelationListWithSigns = new ArrayList();
 
     public Alligator calculate(String tsv, Double startFixedValue, Double endFixedValue, String ca_params) {
+        // write output
+        System.out.println("\r\n===== new Allen calculation =====");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("\r\n===== " + dtf.format(now) + " =====");
         // parse TSV as text/plain
         String[] lines = null;
         List inputfile = new ArrayList();
