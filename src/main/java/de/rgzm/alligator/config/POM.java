@@ -1,6 +1,8 @@
 package de.rgzm.alligator.config;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import org.json.simple.JSONObject;
 
 /**
@@ -31,6 +33,14 @@ public class POM {
         project.put("description", ConfigProperties.getPropertyParam("description"));
         project.put("url", ConfigProperties.getPropertyParam("url"));
         project.put("encoding", ConfigProperties.getPropertyParam("sourceEncoding"));
+        project.put("doi", "10.5281/zenodo.2540709");
+        project.put("developer", "Florian Thiery");
+        project.put("metadata", "https://github.com/RGZM/alligator/blob/master/CITATION.cff");
+        JSONObject warObject = new JSONObject();
+        File file = new File(POM.class.getClassLoader().getResource("config.properties").getFile());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        warObject.put("last build", sdf.format(file.lastModified()));
+        outObj.put("war", warObject);
         outObj.put("project", project);
         return outObj;
     }
