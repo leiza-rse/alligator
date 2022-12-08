@@ -11,12 +11,14 @@ import de.rgzm.alligator.functions.RDFEvents;
 import de.rgzm.alligator.functions.Timeline;
 import de.rgzm.alligator.log.Logging;
 import de.rgzm.alligator.restconfig.ResponseGZIP;
+import io.swagger.v3.oas.annotations.Hidden;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URI;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -27,12 +29,31 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.ws.rs.QueryParam;
 
 @Path("/")
 public class AlligatorAPI {
 
     @GET
+    @Path("/")
+    @Tag(name = "Info")
+    @Hidden
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "library information"
+    )
     public Response getInfo(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader) throws IOException {
         try {
             return ResponseGZIP.setResponse(acceptEncoding, POM.getInfo().toString());
@@ -42,10 +63,46 @@ public class AlligatorAPI {
         }
     }
 
+    @GET
+    @Path("/info")
+    @Tag(name = "Info")
+    @Hidden
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "text/html",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "api documentation"
+    )
+    public Response getInfo2(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader) throws IOException {
+        try {
+            URI targetURIForRedirection = new URI("../swagger-ui/index.html");
+            return Response.seeOther(targetURIForRedirection).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Logging.getMessageJSON(e, "de.rgzm.alligator.rest.AlligatorAPI"))
+                    .header("Content-Type", "application/json;charset=UTF-8").build();
+        }
+    }
+
     @POST
     @Path("/matrixallen")
+    @Tag(name = "Matrix")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get allen matrix as json"
+    )
     public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -74,8 +131,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/matrixdist")
+    @Tag(name = "Matrix")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get distance matrix as json"
+    )
     public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -104,8 +172,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/timeline")
+    @Tag(name = "Visualisation")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get timeline as json"
+    )
     public Response loadCAgetTIMELINEJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -134,8 +213,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/graph")
+    @Tag(name = "Visualisation")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get graph as json"
+    )
     public Response loadCAgetGRAPHJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -164,8 +254,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/turtle")
+    @Tag(name = "Graph Data")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get results as ttl"
+    )
     public Response loadCAgetRDFFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -194,8 +295,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/cypher")
+    @Tag(name = "Graph Data")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get results as cypther"
+    )
     public Response loadCAgetCYPHERFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -224,8 +336,19 @@ public class AlligatorAPI {
 
     @POST
     @Path("/amt")
+    @Tag(name = "Graph Data")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = String.class)
+                    )
+            ),
+            description = "get results as AMT ttl"
+    )
     public Response loadCAgetAMTFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
             String[] split = tsv.split("#data");
@@ -254,6 +377,7 @@ public class AlligatorAPI {
 
     @POST
     @Path("/amtrepo")
+    @Hidden
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetAMTREPO(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
@@ -284,6 +408,7 @@ public class AlligatorAPI {
 
     @POST
     @Path("/turtlefile")
+    @Hidden
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces("text/turtle;charset=UTF-8")
     public Response loadCAgetRDF(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
