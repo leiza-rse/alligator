@@ -105,10 +105,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetMATRIXALLEN(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -146,10 +152,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetMATRIXDIST(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -187,10 +199,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetTIMELINEJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -228,10 +246,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetGRAPHJSON(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -269,10 +293,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetRDFFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -310,10 +340,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetCYPHERFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -351,10 +387,16 @@ public class AlligatorAPI {
     )
     public Response loadCAgetAMTFILE(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -382,10 +424,16 @@ public class AlligatorAPI {
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public Response loadCAgetAMTREPO(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
@@ -413,10 +461,16 @@ public class AlligatorAPI {
     @Produces("text/turtle;charset=UTF-8")
     public Response loadCAgetRDF(@HeaderParam("Accept-Encoding") String acceptEncoding, @HeaderParam("Accept") String acceptHeader, String tsv) throws IOException {
         try {
+            String linebreak = "";
+            if (tsv.contains("\r\n")) {
+                linebreak = "\r\n";
+            } else if (tsv.contains("\n")) {
+                linebreak = "\n";
+            }
             String[] split = tsv.split("#data");
-            String metadata = split[0].replace("\r\n", "");
+            String metadata = split[0].replace(linebreak, "");
             String[] metadata_split = metadata.split("#");
-            String data = split[1].replaceFirst("\r\n", "");
+            String data = split[1].replaceFirst(linebreak, "");
             Double startFixedValue = null;
             Double endFixedValue = null;
             String ca_params = null;
