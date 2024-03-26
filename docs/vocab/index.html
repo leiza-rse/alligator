@@ -14,33 +14,34 @@
 <section class="content">
 <article class="splash">
 
-<h1 id="amt-vocabulary">Alligator Vocabulary</h1>
-<p><strong>Authors</strong>: Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)</p>
-<p><strong>Version</strong>: <a href="https://de.wikipedia.org/wiki/V%C3%A4ttern">Vättern Edition</a></p>
-<p><strong>Date</strong>: 2018-08-19</p>
+<h1 id="vocabulary">Alligator Vocabulary</h1>
+<br><br>
+<p><strong>Authors</strong>: Florian Thiery (Leibniz-Zentrum für Archäologie)</p>
+<p><strong>Version</strong>: Triceratops Edition</a></p>
+<p><strong>Date</strong>: 2024-03-26</p>
 <p><strong>Abstract</strong>: A vocabulary for Alligator</a>.</p>
 <p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 <p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
 
 <h2 id="vocabulary">Vocabulary</h2>
-<p>Alligator Vocabulary is published as RDF on <a href="https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf">GitHub</a>.</p>
-<p>An HTML version is published at <a href="http://rgzm.github.io/alligator/vocab/">http://rgzm.github.io/alligator/vocab/</a>.</p>
+<p>TiGeR Vocabulary is published as RDF on <a href="https://github.com/leiza-rse/alligator/blob/main/ontology/alligator.ttl">GitHub</a>.</p>
+<p>An HTML version is published at <a href="http://leiza-rse.github.io/alligator/vocab/">http://leiza-rse.github.io/alligator/vocab</a>.</p>
 
 <h2 id="namespace">Namespace</h2>
-<p>The official Alligator Vocabulary namespace is <code class="highlighter-rouge">http://rgzm.github.io/alligator/vocab#</code>.</p>
+<p>The official Alligator Vocabulary namespace is <code class="highlighter-rouge">PREFIX lado: &lt;http://archaeology.link/ontology#&gt;</code>.</p>
 
 <h2 id="visualisation">Visualisation</h2>
-<p><a href="http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf" target="_blank"><img src="alligator.png" width="60%"></a></p>
-<p>An interactive visualisation using <a href="http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/RGZM/alligator/master/docs/vocab/alligator.rdf" target="_blank">WebVOWL</a>.</p>
+<p><a href="https://service.tib.eu/webvowl/#iri=https://raw.githubusercontent.com/leiza-rse/alligator/master/ontology/alligator.ttl" target="_blank"><img src="alligator.ttl.png" height="600px"></a></p>
+<p>An interactive visualisation using <a href="https://service.tib.eu/webvowl/#iri=https://raw.githubusercontent.com/leiza-rse/alligator/master/ontology/alligator.ttl" target="_blank">WebVOWL</a>.</p>
 
 <h2 id="alligator-classes">Alligator Classes</h2>
 <p>Below are Linked Data identifiers for the Alligator Classes found in the Alligator Vocabulary.</p>
 <h3>General Classes</h3>
-<h3><a name="Event">alligator:Event</a></h3>
+<h3><a name="Event">Alligator_Event</a></h3>
 <table>
   <tr>
     <td width='200px'>URI:</td>
-    <td><code>http://rgzm.github.io/alligator/vocab#Event</code></td>
+    <td><code>http://archaeology.link/ontology#Alligator_Event</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -58,25 +59,22 @@
     <td>rdfs:subClassOf</td>
     <td><code><a href="http://www.w3.org/2006/time#TemporalEntity">http://www.w3.org/2006/time#TemporalEntity</a></code></td>
   </tr>
-  <tr>
-    <td>Instance:</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
-  </tr>
 </table>
 
 <h2 id="core-properties">Alligator Properties</h2>
 <p>Below are Linked Data identifiers for the Alligator Properties found in the Alligator Vocabulary.</p>
 
 <h3>name</h3>
+
 <h3><a name="eventname">eventname</a></h3>
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#eventname</code></td>
+    <td><code>http://archaeology.link/ontology#eventname</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>Name of the Alligator Event (string).</code></td>
+    <td><code>Name of the event (string).</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -84,30 +82,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
-  </tr>
-  <tr>
-    <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></code></td>
-  </tr>
-</table>
-<h3><a name="identifier">identifier</a></h3>
-<table>
-  <tr>
-    <td width='200px'>URI: </td>
-    <td><code>http://purl.org/dc/elements/1.1/identifier</code></td>
-  </tr>
-  <tr>
-    <td>Definition:</td>
-    <td><code>Identifier if the event (string).</code></td>
-  </tr>
-  <tr>
-    <td>Label:</td>
-    <td><code>dc:identifier</code></td>
-  </tr>
-  <tr>
-    <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -116,11 +91,12 @@
 </table>
 
 <h3>virtual fuzzy years</h3>
+
 <h3><a name="estimatedstart">estimatedstart</a></h3>
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#estimatedstart</code></td>
+    <td><code>http://archaeology.link/ontology#estimatedstart</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -132,7 +108,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -143,7 +119,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#estimatedend</code></td>
+    <td><code>http://archaeology.link/ontology#estimatedend</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -155,7 +131,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -163,12 +139,13 @@
   </tr>
 </table>
 
-<h3>ca</h3>
+<h3>Correspondence Analysis</h3>
+
 <h3><a name="cax">cax</a></h3>
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#cax</code></td>
+    <td><code>http://archaeology.link/ontology#cax</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -180,7 +157,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -191,7 +168,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#cay</code></td>
+    <td><code>http://archaeology.link/ontology#cay</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -203,7 +180,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -214,7 +191,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#caz</code></td>
+    <td><code>http://archaeology.link/ontology#caz</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -226,7 +203,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -239,7 +216,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#startfixed</code></td>
+    <td><code>http://archaeology.link/ontology#startfixed</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -251,7 +228,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -262,7 +239,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#endfixed</code></td>
+    <td><code>http://archaeology.link/ontology#endfixed</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -274,7 +251,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -287,7 +264,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#nfsn</code></td>
+    <td><code>http://archaeology.link/ontology#nfsn</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -299,7 +276,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -310,7 +287,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#nfen</code></td>
+    <td><code>http://archaeology.link/ontology#nfen</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -322,7 +299,7 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
@@ -333,7 +310,7 @@
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#nfsnE</code></td>
+    <td><code>http://archaeology.link/ontology#nfsnE</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -345,18 +322,18 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="nfen">nfenE</a></h3>
 <table>
   <tr>
     <td width='200px'>URI: </td>
-    <td><code>http://rgzm.github.io/alligator/vocab#nfenE</code></td>
+    <td><code>http://archaeology.link/ontology#nfenE</code></td>
   </tr>
   <tr>
     <td>Definition:</td>
@@ -368,11 +345,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 
@@ -393,11 +370,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="a">a</a></h3>
@@ -416,11 +393,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="m">m</a></h3>
@@ -439,11 +416,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="mi">mi</a></h3>
@@ -462,11 +439,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="o">o</a></h3>
@@ -485,11 +462,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="oi">oi</a></h3>
@@ -508,11 +485,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="s">s</a></h3>
@@ -531,11 +508,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="si">si</a></h3>
@@ -554,11 +531,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="f">f</a></h3>
@@ -577,11 +554,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="fi">fi</a></h3>
@@ -600,11 +577,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="d">d</a></h3>
@@ -623,11 +600,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="di">di</a></h3>
@@ -646,11 +623,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 <h3><a name="e">e</a></h3>
@@ -669,11 +646,11 @@
   </tr>
   <tr>
     <td>rdfs:domain</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://rgzm.github.io/alligator/vocab#Event">http://rgzm.github.io/alligator/vocab#Event</a></code></td>
+    <td><code><a href="http://archaeology.link/ontology#Alligator_Event">http://archaeology.link/ontology#Alligator_Event</a></code></td>
   </tr>
 </table>
 
